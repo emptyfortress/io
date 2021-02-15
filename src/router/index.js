@@ -10,6 +10,9 @@ const routes = [
 	{
 		path: '/pag',
 		component: Pag,
+		meta: {
+			color: 'danger'
+		}
 	},
 	{
 		path: '/tabs/',
