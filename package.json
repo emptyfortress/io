@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "gulp": "gulp",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
@@ -29,6 +30,9 @@
     "@vue/test-utils": "^2.0.0-0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^7.5.0",
+    "gulp": "^4.0.2",
+    "gulp-replace": "^1.0.0",
+    "gulp-svgmin": "^3.0.0",
     "pug": "^3.0.0",
     "pug-loader": "^2.4.0",
     "pug-plain-loader": "^1.1.0",

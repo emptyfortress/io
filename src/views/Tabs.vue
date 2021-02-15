@@ -1,9 +1,9 @@
 <template lang="pug">
-ion-page
+ion-page.my
 	ion-tabs
-		ion-tab-bar( slot="bottom" color="")
+		ion-tab-bar( slot="bottom").myy
 			ion-tab-button( tab="tab1" href="/tabs/tab1" )
-				ion-icon(src="/assets/img/my.svg")
+				ion-icon(src="assets/icons/line.svg")
 				ion-label Tab 1
 			ion-tab-button( tab="tab2" href="/tabs/tab2" )
 				ion-icon( :icon="ellipse" )
@@ -55,3 +55,12 @@ export default {
 	// }
 }
 </script>
+
+<style scoped lang="scss">
+.my {
+	/* --ion-tab-bar-background: #ccc; */
+}
+ion-tab-bar {
+	border-top: 6px solid var(--ion-color-primary);
+}
+</style>

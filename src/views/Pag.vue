@@ -9,10 +9,10 @@ ion-page
 </template>
 
 <script>
-import { IonPage, IonToolBar, IonBackButton, IonContent } from '@ionic/vue'
+import { IonPage, IonToolbar, IonBackButton, IonContent } from '@ionic/vue'
 
 export default {
-	components: { IonPage, IonToolBar, IonBackButton, IonContent },
+	components: { IonPage, IonToolbar, IonBackButton, IonContent },
 	data() {
 		return {}
 	},

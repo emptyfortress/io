@@ -8,10 +8,12 @@ ion-page
 			ion-toolbar
 				ion-title( size="large" ) Tab 1
 		ion-button(router-link="/tabs/tab1/tab2") Go to tab 2
-		ion-icon(src="assets/img/my.svg").lar
+		ion-icon(src="assets/icons/line.svg" color="primary").lar
 </template>
 
 <script>
+import { albumsOutline } from 'ionicons/icons'
+
 import {
 	IonPage,
 	IonHeader,
@@ -20,20 +22,25 @@ import {
 	IonContent,
 	IonButton,
 	IonIcon,
+	IonFooter,
 } from '@ionic/vue'
-import ExploreContainer from '@/components/ExploreContainer.vue'
 
 export default {
 	name: 'Tab1',
+	data() {
+		return {
+			albumsOutline,
+		}
+	},
 	components: {
-		ExploreContainer,
 		IonHeader,
 		IonToolbar,
 		IonTitle,
 		IonContent,
 		IonPage,
 		IonButton,
-		IonIcon
+		IonIcon,
+		IonFooter,
 	},
 }
 </script>
@@ -41,11 +48,8 @@ export default {
 <style scoped lang="scss">
 .lar {
 	font-size: 2rem;
-	fill: red;
 	cursor: pointer;
-	&:hover {
-		fill: yellow;
-	}
+	fill: red;
+	stroke: red;
 }
-
 </style>
