@@ -3,20 +3,25 @@ IonApp
 	IonSplitPane(content-id="main")
 		IonMenu(side="start" menu-id="left" content-id="main" type="overlay")
 			IonContent 
-				IonMenuToggle(routerLink="/page") to page
+				IonMenuToggle(routerLink="/tabs/page") to page
 		IonPage(id="main")
 			IonContent
 				IonRouterOutlet
-			IonTabBar(slot="bottom")
-				IonMenuButton.menu
-				IonTabButton(@click="goHome")
-					IonIcon( :icon="speedometerOutline" )
-				IonTabButton(  @click="goNotific")
-					IonIcon( :icon="notificationsOutline" )
-				IonTabButton( @click="test" )
-					IonIcon( :icon="addCircleOutline" )
-				IonTabButton(@click="test")
-					IonIcon(:icon="searchOutline")
+				IonTabs
+					IonTabBar(slot="bottom")
+						IonMenuButton.menu
+						IonTabButton(tab="tab1" href="/tabs/tab1")
+							IonIcon( :icon="speedometerOutline" )
+						IonTabButton(tab="page" href="/tabs/page")
+							IonIcon( :icon="folderOpenOutline" )
+						IonTabButton(tab="tab2" href="/tabs/tab2")
+							IonIcon( :icon="notificationsOutline" )
+						IonTabButton(tab="tab3" href="/tabs/tab3")
+							IonIcon(:icon="searchOutline")
+						IonTabButton(tab="")
+			IonFab(vertical="bottom" horizontal="end" slot="fixed").fabb
+				IonFabButton(color="danger")
+					IonIcon(:icon="addOutline")
 
 </template>
 
@@ -29,9 +34,13 @@ import {
 	IonPage,
 	IonContent,
 	IonRouterOutlet,
+	IonFooter,
+	IonTabs,
 	IonTabBar,
 	IonMenuButton,
 	IonTabButton,
+	IonFab,
+	IonFabButton,
 	IonIcon,
 } from '@ionic/vue'
 import MainView from '@/views/MainView'
@@ -39,8 +48,8 @@ import {
 	menu,
 	easelOutline,
 	speedometerOutline,
-	addCircleOutline,
-	folderOutline,
+	addOutline,
+	folderOpenOutline,
 	searchOutline,
 	notificationsOutline,
 } from 'ionicons/icons'
@@ -56,9 +65,13 @@ export default {
 		IonPage,
 		IonContent,
 		IonRouterOutlet,
+		IonFooter,
+		IonTabs,
 		IonTabBar,
 		IonMenuButton,
 		IonTabButton,
+		IonFab,
+		IonFabButton,
 		IonIcon,
 	},
 	data() {
@@ -66,8 +79,8 @@ export default {
 			menu,
 			easelOutline,
 			speedometerOutline,
-			addCircleOutline,
-			folderOutline,
+			addOutline,
+			folderOpenOutline,
 			searchOutline,
 			notificationsOutline,
 		}
@@ -90,5 +103,9 @@ export default {
 .menu {
 	margin-left: 15px;
 	margin-right: 12px;
+}
+.fabb {
+	position: fixed;
+	bottom: 1rem;
 }
 </style>
