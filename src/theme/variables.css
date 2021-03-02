@@ -3,6 +3,11 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+	/* --ion-background-color: var(--ion-color-light); */
+	/* --ion-background-color: #efede6; */
+	--ion-background-color: #f3f3f3;
+	--ion-tab-bar-background: #fff;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;

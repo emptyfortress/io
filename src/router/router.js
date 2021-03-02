@@ -1,14 +1,17 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router'
-import Tabs from '../views/Tabs.vue'
+import Tabs from '@/views/Tabs.vue'
+import Home from '@/views/Home.vue'
+
 import Pag from '@/views/Pag'
 
 const routes = [
 	{
 		path: '/',
-		redirect: '/tabs/tab1',
+		component: Home,
+		// redirect: '/pag',
 	},
 	{
-		path: '/pag',
+		path: '/page',
 		component: Pag,
 		meta: {
 			color: 'danger'

@@ -1,55 +1,55 @@
 <template lang="pug">
-ion-page
-	ion-header
-		ion-toolbar
-			ion-title first page very very long titla lkalk lkajl 
-	ion-content
-		ion-button(router-link="/pag") lakj
-	//- ion-tabs
-	//- 	ion-tab-bar( slot="bottom").myy
-	//- 		ion-tab-button( tab="tab1" href="/tabs/tab1" )
-	//- 			ion-icon(src="assets/icons/line.svg")
-	//- 			ion-label Tab 1
-	//- 		ion-tab-button( tab="tab2" href="/tabs/tab2" )
-	//- 			ion-icon( :icon="ellipse" )
-	//- 			ion-label Tab 2
-	//- 		ion-tab-button( tab="tab3" href="/tabs/tab3" )
-	//- 			ion-icon( :icon="square" )
-	//- 			ion-label Tab 3
+IonPage
+	IonTabs
+		IonTabBar( slot="bottom")
+			IonTabButton(tab="tab1" href="#")
+				IonMenuButton
+			IonTabButton( tab="tab2" href="/" )
+				IonIcon( :icon="easelOutline" )
+			IonTabButton( tab="tab3" href="#" @click="test")
+				IonIcon( :icon="notificationsOutline" )
+			IonTabButton( tab="tab4" href="#" )
+				IonIcon( :icon="addCircleOutline" )
+			IonTabButton( tab="tab4" href="/tabs/tab3" )
+				IonIcon( :icon="searchOutline" )
 </template>
 
 <script>
 import {
 	IonPage,
-	IonHeader,
-	IonContent,
-	IonButton,
-	// IonTabs,
-	// IonTabBar,
-	// IonTabButton,
-	// IonIcon,
-	// IonLabel,
+	IonTabs,
+	IonTabBar,
+	IonMenuButton,
+	IonTabButton,
+	IonIcon,
 } from '@ionic/vue'
-import { ellipse, square, triangle } from 'ionicons/icons'
+import {
+	menu,
+	easelOutline,
+	speedometerOutline,
+	addCircleOutline,
+	searchOutline,
+	notificationsOutline,
+} from 'ionicons/icons'
 
 export default {
 	name: 'Tabs',
 	components: {
 		IonPage,
-		IonHeader,
-		IonContent,
-		IonButton,
-		// IonTabs,
-		// IonTabBar,
-		// IonTabButton,
-		// IonIcon,
-		// IonLabel,
+		IonTabs,
+		IonTabBar,
+		IonMenuButton,
+		IonTabButton,
+		IonIcon,
 	},
 	data() {
 		return {
-			ellipse,
-			square,
-			triangle,
+			menu,
+			easelOutline,
+			speedometerOutline,
+			addCircleOutline,
+			searchOutline,
+			notificationsOutline,
 		}
 	},
 	methods: {
@@ -57,21 +57,11 @@ export default {
 			console.log('foooo')
 		},
 	},
-	// setup() {
-	// 	return {
-	// 		ellipse,
-	// 		square,
-	// 		triangle,
-	// 	}
-	// }
 }
 </script>
 
 <style scoped lang="scss">
-.my {
-	/* --ion-tab-bar-background: #ccc; */
-}
 ion-tab-bar {
-	border-top: 6px solid var(--ion-color-primary);
+	/* border-top: 1px solid var(--ion-color-primary); */
 }
 </style>
