@@ -10,8 +10,8 @@ IonApp
 			IonTabBar(slot="bottom")
 				IonMenuButton.menu
 				IonTabButton(@click="goHome")
-					IonIcon( :icon="easelOutline" )
-				IonTabButton(  @click="test")
+					IonIcon( :icon="speedometerOutline" )
+				IonTabButton(  @click="goNotific")
 					IonIcon( :icon="notificationsOutline" )
 				IonTabButton( @click="test" )
 					IonIcon( :icon="addCircleOutline" )
@@ -40,6 +40,7 @@ import {
 	easelOutline,
 	speedometerOutline,
 	addCircleOutline,
+	folderOutline,
 	searchOutline,
 	notificationsOutline,
 } from 'ionicons/icons'
@@ -57,7 +58,6 @@ export default {
 		IonRouterOutlet,
 		IonTabBar,
 		IonMenuButton,
-		notificationsOutline,
 		IonTabButton,
 		IonIcon,
 	},
@@ -67,11 +67,15 @@ export default {
 			easelOutline,
 			speedometerOutline,
 			addCircleOutline,
+			folderOutline,
 			searchOutline,
 			notificationsOutline,
 		}
 	},
 	methods: {
+		goNotific() {
+			this.$router.push('/notifications')
+		},
 		goHome() {
 			this.$router.push('/')
 		},
@@ -84,7 +88,7 @@ export default {
 
 <style scoped lang="scss">
 .menu {
-	font-size: 1.5rem;
-	margin-left: 20px;
+	margin-left: 15px;
+	margin-right: 12px;
 }
 </style>
