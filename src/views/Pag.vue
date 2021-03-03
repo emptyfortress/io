@@ -59,10 +59,6 @@ export default {
 		inc() {
 			this.$store.commit('increment')
 		},
-		hello() {
-			// console.log('from pic')
-			this.$emit('hello')
-		},
 	},
 }
 </script>

@@ -9,7 +9,7 @@ IonApp
 						IonMenuToggle(routerLink="/tabs/page") to page
 		IonPage(id="main")
 			IonContent
-				Tabs(:scroll="false" @hello="test")
+				Tabs
 	IonMenu( side="end" menu-id="right" content-id="main" type="push")
 		IonHeader 
 			IonToolbar( color="primary" )

@@ -1,7 +1,7 @@
 <template lang="pug">
 IonPage
-	IonTabs(@hello="hello")
-		.my(:class="tabClass")
+	IonTabs
+		.pack(:class="{ 'mov' : !tabbar}")
 			IonTabBar(slot="bottom")
 				IonMenuButton.menu
 				IonTabButton(tab="tab1" href="/tabs/tab1")
@@ -76,11 +76,7 @@ export default {
 			return this.$store.getters.tabbar
 		},
 	},
-	methods: {
-		hello() {
-			this.$emit('hello')
-		},
-	},
+	methods: {},
 }
 </script>
 
@@ -88,7 +84,7 @@ export default {
 ion-tab-bar {
 	/* border-top: 1px solid var(--ion-color-primary); */
 }
-.my {
+.pack {
 	transition: 0.3s ease all;
 	&.mov {
 		transform: translateY(60px);
