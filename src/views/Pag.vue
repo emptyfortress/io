@@ -5,7 +5,8 @@ IonPage
 			IonButtons(slot="start")
 				IonBackButton
 	IonContent
-		img(src="assets/img/avv.png" @click="hello")
+		img(src="assets/img/avv.png" @click="inc")
+	h2 {{ count }}
 	IonFooter
 		IonToolbar(:color="test")
 			IonButtons(slot="start")
@@ -14,6 +15,8 @@ IonPage
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import {
 	IonPage,
 	IonHeader,
@@ -50,8 +53,12 @@ export default {
 		test() {
 			return this.$route.meta.color
 		},
+		...mapGetters(['count']),
 	},
 	methods: {
+		inc() {
+			this.$store.commit('increment')
+		},
 		hello() {
 			// console.log('from pic')
 			this.$emit('hello')

@@ -44,7 +44,7 @@ export default {
 	},
 	methods: {
 		hid() {
-			this.$emit('hide')
+			this.$store.commit('toggleTabbar')
 		},
 	},
 }
