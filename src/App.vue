@@ -8,7 +8,7 @@ IonApp
 					IonItem
 						IonMenuToggle(routerLink="/tabs/page") to page
 		IonPage(id="main")
-			IonContent
+			IonContent(:fullscreen="true")
 				Tabs
 	IonMenu( side="end" menu-id="right" content-id="main" type="push")
 		IonHeader 
@@ -59,11 +59,7 @@ export default {
 	data() {
 		return {}
 	},
-	methods: {
-		test() {
-			console.log('foooo')
-		},
-	},
+	methods: {},
 }
 </script>
 

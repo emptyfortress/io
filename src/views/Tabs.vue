@@ -2,7 +2,7 @@
 IonPage
 	IonTabs
 		.pack(:class="{ 'mov' : !tabbar}")
-			IonTabBar(slot="bottom")
+			IonTabBar
 				IonMenuButton.menu
 				IonTabButton(tab="tab1" href="/tabs/tab1")
 					IonIcon( :icon="speedometerOutline" )
@@ -83,6 +83,9 @@ export default {
 <style scoped lang="scss">
 ion-tab-bar {
 	/* border-top: 1px solid var(--ion-color-primary); */
+}
+.menu {
+	margin-left: 1rem;
 }
 .pack {
 	transition: 0.3s ease all;
