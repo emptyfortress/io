@@ -5,7 +5,7 @@ IonPage
 			IonButtons(slot="start")
 				IonBackButton
 	IonContent
-		img(src="assets/img/avv.png")
+		img(src="assets/img/avv.png" @click="hello")
 	IonFooter
 		IonToolbar(:color="test")
 			IonButtons(slot="start")
@@ -49,6 +49,12 @@ export default {
 	computed: {
 		test() {
 			return this.$route.meta.color
+		},
+	},
+	methods: {
+		hello() {
+			// console.log('from pic')
+			this.$emit('hello')
 		},
 	},
 }

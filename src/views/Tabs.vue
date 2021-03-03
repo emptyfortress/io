@@ -1,17 +1,21 @@
 <template lang="pug">
 IonPage
-	IonTabs
-		IonTabBar( slot="bottom")
-			IonTabButton(tab="tab1" href="#")
-				IonMenuButton
-			IonTabButton( tab="tab2" href="/" )
-				IonIcon( :icon="easelOutline" )
-			IonTabButton( tab="tab3" href="#" @click="test")
+	IonTabs(@hello="hello")
+		IonTabBar(slot="bottom" :class="{ 'hide' : scroll }")
+			IonMenuButton.menu
+			IonTabButton(tab="tab1" href="/tabs/tab1")
+				IonIcon( :icon="speedometerOutline" )
+			IonTabButton(tab="page" href="/tabs/page")
+				IonIcon( :icon="folderOpenOutline" )
+			IonTabButton(tab="tab2" href="/tabs/tab2")
 				IonIcon( :icon="notificationsOutline" )
-			IonTabButton( tab="tab4" href="#" )
-				IonIcon( :icon="addCircleOutline" )
-			IonTabButton( tab="tab4" href="/tabs/tab3" )
-				IonIcon( :icon="searchOutline" )
+				IonBadge(color="danger") 20
+			IonTabButton(tab="tab3" href="/tabs/tab3")
+				IonIcon(:icon="searchOutline")
+			IonTabButton(tab="")
+	IonFab(vertical="bottom" horizontal="end" slot="fixed").fabb
+		IonFabButton(color="danger")
+			IonIcon(:icon="addOutline")
 </template>
 
 <script>
@@ -20,12 +24,16 @@ import {
 	IonTabs,
 	IonTabBar,
 	IonMenuButton,
+	IonBadge,
 	IonTabButton,
+	IonFab,
+	IonFabButton,
 	IonIcon,
 } from '@ionic/vue'
 import {
 	menu,
-	easelOutline,
+	addOutline,
+	folderOpenOutline,
 	speedometerOutline,
 	addCircleOutline,
 	searchOutline,
@@ -33,19 +41,24 @@ import {
 } from 'ionicons/icons'
 
 export default {
+	props: ['scroll'],
 	name: 'Tabs',
 	components: {
 		IonPage,
 		IonTabs,
 		IonTabBar,
 		IonMenuButton,
+		IonBadge,
 		IonTabButton,
+		IonFab,
+		IonFabButton,
 		IonIcon,
 	},
 	data() {
 		return {
 			menu,
-			easelOutline,
+			addOutline,
+			folderOpenOutline,
 			speedometerOutline,
 			addCircleOutline,
 			searchOutline,
@@ -53,8 +66,8 @@ export default {
 		}
 	},
 	methods: {
-		test() {
-			console.log('foooo')
+		hello() {
+			this.$emit('hello')
 		},
 	},
 }
@@ -62,6 +75,14 @@ export default {
 
 <style scoped lang="scss">
 ion-tab-bar {
+	transition: 0.3s ease all;
+	&.hide {
+		transform: translateY(60px);
+	}
 	/* border-top: 1px solid var(--ion-color-primary); */
+}
+.fabb {
+	position: fixed;
+	bottom: 1rem;
 }
 </style>

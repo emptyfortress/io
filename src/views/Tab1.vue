@@ -8,6 +8,7 @@ IonPage
 			IonToolbar
 				IonTitle( size="large" ) Tab 1
 		IonButton(routerLink="/tabs/tab2") Go to tab 2
+		IonButton(@click="hid") hide
 </template>
 
 <script>
@@ -40,6 +41,11 @@ export default {
 		IonButton,
 		IonIcon,
 		IonFooter,
+	},
+	methods: {
+		hid() {
+			this.$emit('hide')
+		},
 	},
 }
 </script>
