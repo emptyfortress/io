@@ -15,8 +15,9 @@ IonPage
 					IonIcon(:icon="searchOutline")
 				IonTabButton(tab="")
 	IonFab(vertical="bottom" horizontal="end" :class="{'mov' : !tabbar}").fabb
-		IonFabButton(color="danger")
+		IonFabButton(color="danger" @click="showAdd")
 			IonIcon(:icon="addOutline")
+	IonActionSheet(:is-open="add" header="Albums" :buttons="buttons" @onDidDismiss="showAdd")
 </template>
 
 <script>
@@ -30,6 +31,7 @@ import {
 	IonFab,
 	IonFabButton,
 	IonIcon,
+	IonActionSheet,
 } from '@ionic/vue'
 import {
 	menu,
@@ -42,7 +44,6 @@ import {
 } from 'ionicons/icons'
 
 export default {
-	props: ['scroll'],
 	name: 'Tabs',
 	components: {
 		IonPage,
@@ -54,9 +55,11 @@ export default {
 		IonFab,
 		IonFabButton,
 		IonIcon,
+		IonActionSheet,
 	},
 	data() {
 		return {
+			add: false,
 			menu,
 			addOutline,
 			folderOpenOutline,
@@ -64,6 +67,47 @@ export default {
 			addCircleOutline,
 			searchOutline,
 			notificationsOutline,
+			buttons: [
+				{
+					text: 'Delete',
+					role: 'destructive',
+					// icon: trash,
+					handler: () => {
+						// this.$router.push('/tabs/new')
+						this.$router.push('/new')
+						console.log('Delete clicked')
+					},
+				},
+				{
+					text: 'Share',
+					// icon: share,
+					handler: () => {
+						console.log('Share clicked')
+					},
+				},
+				{
+					text: 'Play (open modal)',
+					// icon: caretForwardCircle,
+					handler: () => {
+						console.log('Play clicked')
+					},
+				},
+				{
+					text: 'Favorite',
+					// icon: heart,
+					handler: () => {
+						console.log('Favorite clicked')
+					},
+				},
+				{
+					text: 'Cancel',
+					// icon: close,
+					role: 'cancel',
+					handler: () => {
+						console.log('Cancel clicked')
+					},
+				},
+			],
 		}
 	},
 	computed: {
@@ -76,7 +120,11 @@ export default {
 			return this.$store.getters.tabbar
 		},
 	},
-	methods: {},
+	methods: {
+		showAdd() {
+			this.add = !this.add
+		},
+	},
 }
 </script>
 
