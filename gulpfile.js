@@ -1,4 +1,4 @@
-const { src, dest } = require('gulp')
+const { src, dest, series } = require('gulp')
 const svgmin = require('gulp-svgmin')
 const replace = require('gulp-replace')
 
@@ -18,11 +18,18 @@ function svg() {
 		.pipe(dest('public/assets/icons/'))
 }
 
-// function color() {
-// 	return src('public/assets/icons/*.svg')
-// 		.pipe(replace('#000', 'currentColor'))
-// 		.pipe(dest('public/assets/icons'))
-// }
+function color() {
+	return src('src/assets/img/*.svg')
+		.pipe(
+			svgmin({
+				plugins: [
+					{ removeTitle: false },
+					{ removeViewBox: false },
+				],
+			})
+		)
+		.pipe(dest('public/assets/img'))
+}
 
-// exports.default = series(svg, color)
-exports.default = svg
+exports.default = series(svg, color)
+// exports.default = svg

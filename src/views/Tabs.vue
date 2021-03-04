@@ -5,7 +5,7 @@
 		IonTabButton(tab="home" href="/home")
 			IonIcon( :icon="speedometerOutline" )
 		IonTabButton(tab="folders" href="/folders")
-			IonIcon( :icon="folderOpenOutline" )
+			IonIcon( :icon="folderOpenOutline")
 		IonTabButton(tab="notifications" href="/notifications")
 			IonIcon( :icon="notificationsOutline" )
 			IonBadge(color="danger") 20

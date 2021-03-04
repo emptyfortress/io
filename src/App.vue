@@ -15,59 +15,44 @@ IonApp
 			IonFooter
 				Tabs
 
-	IonMenu( side="end" menu-id="right" content-id="main" type="push")
-		IonHeader 
-			IonToolbar( color="primary" )
-				IonTitle Start Menu
-		IonContent 
-			IonList 
-				IonItem(v-for="n in 30") Menu Item
+	RightMenu
 
 </template>
 
 <script>
+import RightMenu from '@/components/RightMenu'
+
 import Tabs from '@/views/Tabs.vue'
 import {
 	IonApp,
 	IonSplitPane,
-	IonMenuToggle,
-	IonPage,
-	IonRouterOutlet,
-	IonFooter,
-	IonTabBar,
-	IonTabButton,
-	IonLabel,
 	IonMenu,
-	IonHeader,
-	IonToolbar,
-	IonTitle,
-	IonContent,
 	IonList,
 	IonItem,
+	IonMenuToggle,
+	IonPage,
+	IonContent,
+	IonRouterOutlet,
+	IonTabs,
+	IonFooter,
 } from '@ionic/vue'
-import MainView from '@/views/MainView'
 
 export default {
 	name: 'App',
 	components: {
-		MainView,
 		Tabs,
+		RightMenu,
 		IonApp,
 		IonSplitPane,
-		IonMenuToggle,
-		IonPage,
-		IonRouterOutlet,
-		IonFooter,
-		IonTabBar,
-		IonTabButton,
-		IonLabel,
 		IonMenu,
-		IonHeader,
-		IonToolbar,
-		IonTitle,
-		IonContent,
 		IonList,
 		IonItem,
+		IonMenuToggle,
+		IonPage,
+		IonContent,
+		IonRouterOutlet,
+		IonTabs,
+		IonFooter,
 	},
 	data() {
 		return {}
