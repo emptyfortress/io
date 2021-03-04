@@ -5,8 +5,7 @@ IonPage
 			IonButtons(slot="start")
 				IonBackButton
 			IonTitle Tab 2
-	//- IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="tab").ion-padding
-	IonContent( :fullscreen="true" ).ion-padding
+	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="tab").ion-padding
 		IonHeader( collapse="condense" )
 			IonToolbar()
 				IonTitle( size="large" ) Tab 2

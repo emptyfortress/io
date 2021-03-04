@@ -11,40 +11,25 @@ IonPage
 import {
 	IonPage,
 	IonHeader,
-	IonTitle,
 	IonToolbar,
+	IonTitle,
 	IonContent,
 	IonButton,
-	IonFooter,
 } from '@ionic/vue'
-import {
-	menu,
-	easelOutline,
-	speedometerOutline,
-	addCircleOutline,
-	searchOutline,
-	notificationsOutline,
-} from 'ionicons/icons'
+
+import {} from 'ionicons/icons'
 
 export default {
 	data() {
-		return {
-			menu,
-			easelOutline,
-			speedometerOutline,
-			addCircleOutline,
-			searchOutline,
-			notificationsOutline,
-		}
+		return {}
 	},
 	components: {
 		IonPage,
 		IonHeader,
-		IonTitle,
 		IonToolbar,
+		IonTitle,
 		IonContent,
 		IonButton,
-		IonFooter,
 	},
 }
 </script>

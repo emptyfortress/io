@@ -11,6 +11,9 @@ IonApp
 			IonContent(:fullscreen="true")
 				//- Tabs
 				IonRouterOutlet
+					IonTabs
+			IonFooter
+				Tabs
 
 	IonMenu( side="end" menu-id="right" content-id="main" type="push")
 		IonHeader 
@@ -30,6 +33,10 @@ import {
 	IonMenuToggle,
 	IonPage,
 	IonRouterOutlet,
+	IonFooter,
+	IonTabBar,
+	IonTabButton,
+	IonLabel,
 	IonMenu,
 	IonHeader,
 	IonToolbar,
@@ -43,13 +50,17 @@ import MainView from '@/views/MainView'
 export default {
 	name: 'App',
 	components: {
-		Tabs,
 		MainView,
+		Tabs,
 		IonApp,
 		IonSplitPane,
 		IonMenuToggle,
 		IonPage,
 		IonRouterOutlet,
+		IonFooter,
+		IonTabBar,
+		IonTabButton,
+		IonLabel,
 		IonMenu,
 		IonHeader,
 		IonToolbar,
@@ -61,6 +72,11 @@ export default {
 	data() {
 		return {}
 	},
+	computed: {
+		tabbar() {
+			return this.$store.getters.tabbar
+		},
+	},
 	methods: {},
 }
 </script>
@@ -70,5 +86,14 @@ export default {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+}
+.pack {
+	transition: 0.3s ease all;
+	&.mov {
+		transform: translateY(60px);
+	}
+}
+.footer-md::before {
+	background: none;
 }
 </style>

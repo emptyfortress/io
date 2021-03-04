@@ -1,62 +1,34 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router'
-import Tabs from '@/views/Tabs.vue'
-// import Home from '@/views/Home.vue'
-// import Notifications from '@/components/Notifications'
-import Pag from '@/views/Pag'
+import Home from '@/views/Home.vue'
 
 const routes = [
-	// {
-	// 	path: '/',
-	// 	component: Home,
-	// 	// redirect: '/pag',
-	// },
-	// {
-	// 	path: '/notifications',
-	// 	component: Notifications,
-	// },
 	{
 		path: '/',
-		redirect: '/tabs/tab1'
+		redirect: '/home',
+	},
+	{
+		path: '/home',
+		name: 'home',
+		component: Home
+	},
+	{
+		path: '/folders',
+		name: 'folders',
+		component: () => import('@/views/Folders.vue'),
+	},
+	{
+		path: '/notifications',
+		name: 'notifications',
+		component: () => import('@/views/Notifications.vue'),
+	},
+	{
+		path: '/search',
+		name: 'search',
+		component: () => import('@/views/Search.vue'),
 	},
 	{
 		path: '/new',
 		component: () => import('@/views/New.vue')
-		
-	},
-	{
-		path: '/tabs/',
-		component: Tabs,
-		children: [
-			{
-				path: '',
-				redirect: '/tabs/tab1',
-			},
-			{
-				path: '/tabs/page',
-				component: Pag,
-				meta: {
-					color: 'danger'
-				}
-			},
-			{
-				path: 'tab1',
-				component: () => import('@/views/Tab1.vue'),
-				children: [
-					{
-						path: 'tab2',
-						component: () => import('@/views/Tab2.vue'),
-					},
-				],
-			},
-			{
-				path: 'tab2',
-				component: () => import('@/views/Tab2.vue'),
-			},
-			{
-				path: 'tab3',
-				component: () => import('@/views/Tab3.vue'),
-			},
-		],
 	},
 ]
 

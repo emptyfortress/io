@@ -1,29 +1,25 @@
 <template lang="pug">
-IonPage
-	IonTabs
-		.pack(:class="{ 'mov' : !tabbar}")
-			IonTabBar
-				IonMenuButton.menu
-				IonTabButton(tab="tab1" href="/tabs/tab1")
-					IonIcon( :icon="speedometerOutline" )
-				IonTabButton(tab="page" href="/tabs/page")
-					IonIcon( :icon="folderOpenOutline" )
-				IonTabButton(tab="tab2" href="/tabs/tab2")
-					IonIcon( :icon="notificationsOutline" )
-					IonBadge(color="danger") 20
-				IonTabButton(tab="tab3" href="/tabs/tab3")
-					IonIcon(:icon="searchOutline")
-				IonTabButton(tab="")
-	IonFab(vertical="bottom" horizontal="end" :class="{'mov' : !tabbar}").fabb
-		IonFabButton(color="danger" @click="showAdd")
-			IonIcon(:icon="addOutline")
-	IonActionSheet(:is-open="add" header="Albums" :buttons="buttons" @onDidDismiss="showAdd")
+.pack(:class="{ 'mov' : !tabbar}")
+	IonTabBar
+		IonMenuButton.menu
+		IonTabButton(tab="home" href="/home")
+			IonIcon( :icon="speedometerOutline" )
+		IonTabButton(tab="folders" href="/folders")
+			IonIcon( :icon="folderOpenOutline" )
+		IonTabButton(tab="notifications" href="/notifications")
+			IonIcon( :icon="notificationsOutline" )
+			IonBadge(color="danger") 20
+		IonTabButton(tab="search" href="/search")
+			IonIcon(:icon="searchOutline")
+		IonTabButton(tab="")
+IonFab(vertical="bottom" horizontal="end" :class="{'mov' : !tabbar}").fabb
+	IonFabButton(color="primary" @click="showAdd")
+		IonIcon(:icon="addOutline")
+IonActionSheet(:is-open="add" header="Albums" :buttons="buttons" @onDidDismiss="showAdd")
 </template>
 
 <script>
 import {
-	IonPage,
-	IonTabs,
 	IonTabBar,
 	IonMenuButton,
 	IonBadge,
@@ -46,8 +42,6 @@ import {
 export default {
 	name: 'Tabs',
 	components: {
-		IonPage,
-		IonTabs,
 		IonTabBar,
 		IonMenuButton,
 		IonBadge,
@@ -130,7 +124,7 @@ export default {
 
 <style scoped lang="scss">
 ion-tab-bar {
-	/* border-top: 1px solid var(--ion-color-primary); */
+	border-top: 1px solid var(--ion-color-primary);
 }
 .menu {
 	margin-left: 1rem;
@@ -148,5 +142,8 @@ ion-tab-bar {
 	&.mov {
 		transform: translateX(80px);
 	}
+}
+.tab-selected {
+	border-top: 3px solid var(--ion-color-primary);
 }
 </style>

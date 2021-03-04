@@ -7,7 +7,7 @@ IonPage
 		IonHeader( collapse="condense" )
 			IonToolbar
 				IonTitle( size="large" ) Tab 1
-		IonButton(routerLink="/tabs/tab2") Go to tab 2
+		IonButton(routerLink="/tab2") Go to tab 2
 		IonButton(@click="hid") hide
 </template>
 
