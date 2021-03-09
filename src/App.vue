@@ -55,4 +55,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.footer-md::before {
+	background: none; /* need this for remove shadow in footer */
+}
+</style>
