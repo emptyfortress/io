@@ -1,12 +1,7 @@
 <template lang="pug">
 IonApp
 	IonSplitPane(content-id="main")
-		IonMenu(side="start" menu-id="left" content-id="main" type="overlay")
-			IonContent
-				IonList.bot
-					IonItem(v-for="n in 3") Menu Item
-					IonItem
-						IonMenuToggle(routerLink="/tabs/page") to page
+		LeftDrawer
 		IonPage(id="main")
 			IonContent(:fullscreen="true")
 				//- Tabs
@@ -21,15 +16,12 @@ IonApp
 
 <script>
 import RightMenu from '@/components/RightMenu'
+import LeftDrawer from '@/components/LeftDrawer'
 
 import Tabs from '@/views/Tabs.vue'
 import {
 	IonApp,
 	IonSplitPane,
-	IonMenu,
-	IonList,
-	IonItem,
-	IonMenuToggle,
 	IonPage,
 	IonContent,
 	IonRouterOutlet,
@@ -41,13 +33,10 @@ export default {
 	name: 'App',
 	components: {
 		Tabs,
+		LeftDrawer,
 		RightMenu,
 		IonApp,
 		IonSplitPane,
-		IonMenu,
-		IonList,
-		IonItem,
-		IonMenuToggle,
 		IonPage,
 		IonContent,
 		IonRouterOutlet,
@@ -66,19 +55,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.bot {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-}
-.pack {
-	transition: 0.3s ease all;
-	&.mov {
-		transform: translateY(60px);
-	}
-}
-.footer-md::before {
-	background: none;
-}
-</style>
+<style scoped lang="scss"></style>

@@ -124,7 +124,7 @@ export default {
 
 <style scoped lang="scss">
 ion-tab-bar {
-	box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+	border-top: 1px solid var(--ion-color-primary);
 }
 .menu {
 	margin-left: 1rem;

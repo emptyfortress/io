@@ -11,8 +11,8 @@ IonMenu( side="end" menu-id="right" content-id="main" type="push")
 <script>
 import {
 	IonMenu,
-	IonContent,
 	IonImg,
+	IonContent,
 	IonItem,
 	IonLabel,
 	IonToggle,
@@ -23,14 +23,7 @@ export default {
 			mode: false,
 		}
 	},
-	components: {
-		IonMenu,
-		IonContent,
-		IonImg,
-		IonItem,
-		IonLabel,
-		IonToggle,
-	},
+	components: { IonMenu, IonImg, IonContent, IonItem, IonLabel, IonToggle },
 	methods: {
 		test() {
 			document.querySelector('body').classList.toggle('dark')

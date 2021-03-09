@@ -241,6 +241,7 @@ http://ionicframework.com/docs/theming/ */
 }
 /********************* my own dark mode */
 body.dark {
+
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
