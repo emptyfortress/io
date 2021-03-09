@@ -2,6 +2,7 @@
 IonMenu(side="start" menu-id="left" content-id="main" type="overlay")
 	.topBlock
 		img(src="assets/img/logo1.svg").logo
+		.name Константинопольский И.А.
 		.user
 			IonAvatar.av
 				img(src="assets/img/user0.svg")
@@ -12,8 +13,7 @@ IonMenu(side="start" menu-id="left" content-id="main" type="overlay")
 			IonItem(v-for="n in 30") Menu Item
 			IonItem
 				IonMenuToggle(routerLink="/tabs/page") to page
-	IonFooter
-		p fuck
+
 </template>
 
 <script>
@@ -22,23 +22,26 @@ import {
 	IonMenu,
 	IonAvatar,
 	IonFabButton,
-	IonIcon,
 	IonContent,
 	IonList,
-	IonItem,
 	IonMenuToggle,
 	IonFooter,
+	IonItem,
+	IonIcon,
+	IonLabel,
 } from '@ionic/vue'
-import { logOutOutline } from 'ionicons/icons'
+import { closeOutline, logOutOutline } from 'ionicons/icons'
 
 export default {
 	data() {
 		return {
+			closeOutline,
 			logOutOutline,
 			userAnimation: null,
 			listAnimation: null,
 			logoAnimation: null,
 			fabAnimation: null,
+			nameAnimation: null,
 		}
 	},
 	components: {
@@ -46,12 +49,13 @@ export default {
 		IonMenu,
 		IonAvatar,
 		IonFabButton,
-		IonIcon,
 		IonContent,
 		IonList,
-		IonItem,
 		IonMenuToggle,
 		IonFooter,
+		IonItem,
+		IonIcon,
+		IonLabel,
 	},
 	mounted() {
 		this.userAnimation = anime({
@@ -71,9 +75,17 @@ export default {
 			easing: 'linear',
 			autoplay: false,
 		})
+		this.nameAnimation = anime({
+			targets: '.name',
+			opacity: 0,
+			translateY: -30,
+			translateX: -70,
+			easing: 'linear',
+			autoplay: false,
+		})
 		this.listAnimation = anime({
 			targets: '.topBlock',
-			height: 70,
+			height: 50,
 			easing: 'linear',
 			autoplay: false,
 		})
@@ -91,6 +103,7 @@ export default {
 			this.userAnimation.seek(e.detail.scrollTop * 5)
 			this.logoAnimation.seek(e.detail.scrollTop * 3)
 			this.fabAnimation.seek(e.detail.scrollTop * 9)
+			this.nameAnimation.seek(e.detail.scrollTop * 9)
 		},
 	},
 }
@@ -122,6 +135,9 @@ export default {
 .topBlock {
 	position: relative;
 	height: 250px;
+	/* border-bottom: 1px solid #ccc; */
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	margin-bottom: 1rem;
 }
 .logo {
 	width: 50%;
@@ -135,5 +151,9 @@ export default {
 	--background: #fff;
 	--box-shadow: none;
 	--color: var(--ion-color-primary);
+}
+.name {
+	text-align: center;
+	margin-top: 2rem;
 }
 </style>
