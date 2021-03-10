@@ -2,8 +2,13 @@
 IonPage
 	IonHeader
 		IonToolbar
-			IonTitle Home
-	IonContent
+			IonButtons(slot="start")
+				IonBackButton
+			IonTitle home small
+	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="tab").ion-padding
+		IonHeader( collapse="condense" )
+			IonToolbar
+				IonTitle( size="large" ) Home
 		ul.tree
 			TreeItem(class="item" :item="treeData" @make-folder="makeFolder" @add-item="addItem")
 
@@ -76,7 +81,7 @@ export default {
 <style scoped lang="scss">
 .tree {
 	list-style: none;
-	padding: 0.5rem;
-	margin-left: 0rem;
+	padding: 0;
+	margin: 0;
 }
 </style>

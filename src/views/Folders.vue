@@ -4,7 +4,7 @@ IonPage
 		IonToolbar
 			IonButtons(slot="start")
 				IonBackButton
-			IonTitle Tab 2
+			IonTitle Tab 2 small
 	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="tab").ion-padding
 		IonHeader( collapse="condense" )
 			IonToolbar()

@@ -7,8 +7,9 @@ li
 			.name {{ item.name}}
 			IonRippleEffect
 		IonBadge(color="primary" v-show="item.badge") 10
-	ul(v-show="isOpen" v-if="isFolder")
-		TreeItem(class="item" v-for="(child, index) in item.children" :key="index" :item="child")
+	transition(name="slidex" mode="out-in")
+		ul(v-show="isOpen" v-if="isFolder")
+			TreeItem(class="item" v-for="(child, index) in item.children" :key="index" :item="child")
 </template>
 
 <script>
@@ -77,8 +78,5 @@ li {
 		padding: 0;
 		margin-left: 1.5rem;
 	}
-}
-.chevron {
-	fill: green;
 }
 </style>

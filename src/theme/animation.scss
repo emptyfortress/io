@@ -1,0 +1,9 @@
+.slidex-enter-active,
+.slidex-leave-active {
+	transition: 0.3s cubic-bezier(0.08, 0.96, 0.4, 1) all;
+}
+.slidex-enter-from,
+.slidex-leave-to {
+	opacity: 0;
+	transform: translateX(-30px);
+}
