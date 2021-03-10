@@ -1,22 +1,24 @@
 <template lang="pug">
 li
-	.flex
+	.flex(:class="{'sel' : item.selected}")
 		img(@click="toggle" src="assets/icons/chevr.svg" v-show="isFolder" :class="{'op' : isOpen}").chevron
-		.name {{ item.name}}
+		.myripple.ion-activatable.ripple-parent
+			.name {{ item.name}}
+			IonRippleEffect
 		IonBadge(color="primary" v-show="item.badge") 10
 	ul(v-show="isOpen" v-if="isFolder")
 		TreeItem(class="item" v-for="(child, index) in item.children" :key="index" :item="child")
 </template>
 
 <script>
-import { IonBadge } from '@ionic/vue'
+import { IonBadge, IonRippleEffect } from '@ionic/vue'
 import {} from 'ionicons/icons'
 
 export default {
 	props: {
 		item: Object,
 	},
-	components: { IonBadge },
+	components: { IonBadge, IonRippleEffect },
 	data: function() {
 		return {
 			isOpen: false,
@@ -42,20 +44,24 @@ li {
 	list-style: none;
 }
 .flex {
+	position: relative;
 	display: flex;
 	width: 100%;
-	padding-right: 0.5rem;
+	padding: 0.5rem;
+	margin: 0;
+	cursor: pointer;
+	&.sel {
+		background: var(--ion-color-selection);
+	}
 }
 .name {
 	flex-grow: 1;
 }
+.myripple {
+	width: 100%;
+}
 .item {
-	display: block;
 	font-size: 1.1rem;
-	padding: 0.5rem;
-	padding-right: 0rem;
-	margin: 0;
-	cursor: pointer;
 	.chevron {
 		transition: 0.3s all;
 		&.op {

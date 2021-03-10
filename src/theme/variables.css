@@ -7,6 +7,7 @@ http://ionicframework.com/docs/theming/ */
 	/* --ion-background-color: #efede6; */
 	--ion-background-color: #f3f3f3;
 	--ion-tab-bar-background: #fff;
+	--ion-color-selection: #bbe1ff;
 
   /** primary **/
   --ion-color-primary: #3880ff;

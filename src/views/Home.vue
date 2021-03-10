@@ -31,6 +31,7 @@ export default {
 					{ name: 'wat' },
 					{
 						name: 'child folder',
+						selected: true,
 						children: [
 							{
 								name: 'child folder',
