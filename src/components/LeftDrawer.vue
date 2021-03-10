@@ -2,11 +2,12 @@
 IonMenu(side="start" menu-id="left" content-id="main" type="overlay")
 	.topBlock
 		img(src="assets/img/logo1.svg").logo
-		.name Константинопольский И.А.
+		.name Орлов И.А.
 		.user
 			IonAvatar.av
 				img(src="assets/img/user0.svg")
-			IonFabButton(size="small").fb
+			.online
+			IonFabButton(size="small").exit
 				IonIcon(:icon="logOutOutline" )
 	IonContent(scroll-events @ionScroll="move").lisst
 		IonList
@@ -31,12 +32,11 @@ import {
 	IonIcon,
 	IonLabel,
 } from '@ionic/vue'
-import { closeOutline, logOutOutline } from 'ionicons/icons'
+import { logOutOutline } from 'ionicons/icons'
 
 export default {
 	data() {
 		return {
-			closeOutline,
 			logOutOutline,
 			userAnimation: null,
 			listAnimation: null,
@@ -60,27 +60,23 @@ export default {
 	},
 	mounted() {
 		this.userAnimation = anime({
-			targets: '.av',
-			translateY: -90,
+			targets: '.user',
+			translateY: -137,
 			translateX: -120,
-			width: 32,
-			height: 32,
+			scale: 0.3,
 			easing: 'linear',
 			autoplay: false,
 		})
 		this.fabAnimation = anime({
-			targets: '.fb',
+			targets: '.exit',
 			opacity: 0,
-			translateY: -50,
-			translateX: -100,
 			easing: 'linear',
 			autoplay: false,
 		})
 		this.nameAnimation = anime({
 			targets: '.name',
-			opacity: 0,
-			translateY: -30,
-			translateX: -70,
+			translateY: -45,
+			translateX: -40,
 			easing: 'linear',
 			autoplay: false,
 		})
@@ -102,9 +98,9 @@ export default {
 		move(e) {
 			this.listAnimation.seek(e.detail.scrollTop * 5)
 			this.userAnimation.seek(e.detail.scrollTop * 5)
-			this.logoAnimation.seek(e.detail.scrollTop * 3)
+			this.logoAnimation.seek(e.detail.scrollTop * 5)
 			this.fabAnimation.seek(e.detail.scrollTop * 9)
-			this.nameAnimation.seek(e.detail.scrollTop * 9)
+			this.nameAnimation.seek(e.detail.scrollTop * 5)
 		},
 	},
 }
@@ -114,7 +110,7 @@ export default {
 .user {
 	position: absolute;
 	top: 100px;
-	left: 50%;
+	left: 85px;
 	transform: translateX(-50%);
 	.av {
 		width: 128px;
@@ -124,6 +120,16 @@ export default {
 			rgba(255, 255, 255, 1) 10%,
 			rgba(95, 195, 255, 1) 100%
 		);
+	}
+	.online {
+		position: absolute;
+		bottom: 3px;
+		right: 3px;
+		width: 36px;
+		height: 36px;
+		background: #0da80d;
+		border-radius: 50%;
+		border: 3px solid #fff;
 	}
 }
 .dark .user .av {
@@ -145,16 +151,24 @@ export default {
 	margin: 0.5rem auto;
 	display: block;
 }
-.fb {
+.exit {
 	position: absolute;
-	bottom: -1rem;
-	right: -1rem;
+	bottom: -0.5rem;
+	left: -0.5rem;
+	--background: #fff;
+	--box-shadow: none;
+	--color: var(--ion-color-primary);
+}
+.edit {
+	position: absolute;
+	top: -1rem;
+	left: -1rem;
 	--background: #fff;
 	--box-shadow: none;
 	--color: var(--ion-color-primary);
 }
 .name {
 	text-align: center;
-	margin-top: 2rem;
+	margin-top: 1.5rem;
 }
 </style>
