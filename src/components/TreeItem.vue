@@ -1,7 +1,7 @@
 <template lang="pug">
 li
 	.flex(:class="{'sel' : item.selected}")
-		img(@click="toggle" src="assets/icons/chevr.svg" v-show="isFolder" :class="{'op' : isOpen}").chevron
+		img(@click="toggle" src="assets/icons/chevr.svg" v-show="isFolder" :class="{'open' : isOpen}").chevron
 		.myripple.ion-activatable.ripple-parent
 			.name {{ item.name}}
 			IonRippleEffect
@@ -64,7 +64,7 @@ li {
 	font-size: 1.1rem;
 	.chevron {
 		transition: 0.3s all;
-		&.op {
+		&.open {
 			transform: rotate(90deg);
 		}
 	}
@@ -74,5 +74,8 @@ li {
 		padding: 0;
 		margin-left: 1.5rem;
 	}
+}
+.chevron {
+	fill: green;
 }
 </style>

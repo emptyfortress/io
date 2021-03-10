@@ -4,6 +4,7 @@ IonPage
 		IonToolbar
 			IonTitle Home
 	IonContent
+		img(src="assets/icons/lock.svg" color="primary").re
 		ul.tree
 			TreeItem(class="item" :item="treeData" @make-folder="makeFolder" @add-item="addItem")
 
@@ -74,7 +75,10 @@ export default {
 <style scoped lang="scss">
 .tree {
 	list-style: none;
-	padding: 0;
-	margin-left: 1rem;
-}
+	padding: 0.5rem;
+	margin-left: 0rem;
+ }
+.re path {
+	fill: red;
+ }
 </style>
