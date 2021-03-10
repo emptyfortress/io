@@ -4,7 +4,6 @@ IonPage
 		IonToolbar
 			IonTitle Home
 	IonContent
-		img(src="assets/icons/lock.svg" color="primary").re
 		ul.tree
 			TreeItem(class="item" :item="treeData" @make-folder="makeFolder" @add-item="addItem")
 
@@ -17,6 +16,7 @@ import {
 	IonToolbar,
 	IonTitle,
 	IonContent,
+	IonIcon,
 } from '@ionic/vue'
 
 import {} from 'ionicons/icons'
@@ -57,6 +57,7 @@ export default {
 		IonToolbar,
 		IonTitle,
 		IonContent,
+		IonIcon,
 	},
 	methods: {
 		makeFolder: function(item) {
@@ -77,8 +78,5 @@ export default {
 	list-style: none;
 	padding: 0.5rem;
 	margin-left: 0rem;
- }
-.re path {
-	fill: red;
- }
+}
 </style>

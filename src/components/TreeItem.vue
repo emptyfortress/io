@@ -1,7 +1,8 @@
 <template lang="pug">
 li
 	.flex(:class="{'sel' : item.selected}")
-		img(@click="toggle" src="assets/icons/chevr.svg" v-show="isFolder" :class="{'open' : isOpen}").chevron
+		.chevron(@click="toggle"  v-show="isFolder" :class="{'open' : isOpen}")
+			IonIcon(:icon="chevronForwardOutline")
 		.myripple.ion-activatable.ripple-parent
 			.name {{ item.name}}
 			IonRippleEffect
@@ -11,16 +12,17 @@ li
 </template>
 
 <script>
-import { IonBadge, IonRippleEffect } from '@ionic/vue'
-import {} from 'ionicons/icons'
+import { IonIcon, IonRippleEffect, IonBadge } from '@ionic/vue'
+import { chevronForwardOutline } from 'ionicons/icons'
 
 export default {
 	props: {
 		item: Object,
 	},
-	components: { IonBadge, IonRippleEffect },
+	components: { IonIcon, IonRippleEffect, IonBadge },
 	data: function() {
 		return {
+			chevronForwardOutline,
 			isOpen: false,
 		}
 	},
@@ -64,6 +66,7 @@ li {
 	font-size: 1.1rem;
 	.chevron {
 		transition: 0.3s all;
+		margin-right: 0.3rem;
 		&.open {
 			transform: rotate(90deg);
 		}
