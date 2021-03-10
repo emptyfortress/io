@@ -3,15 +3,13 @@ IonPage
 	IonHeader
 		IonToolbar
 			IonTitle Home
-
 	IonContent
-
+		ul.tree
+			TreeItem(class="item" :item="treeData" @make-folder="makeFolder" @add-item="addItem")
 
 </template>
 
 <script>
-import anime from 'animejs/lib/anime.es.js'
-
 import {
 	IonPage,
 	IonHeader,
@@ -21,35 +19,61 @@ import {
 } from '@ionic/vue'
 
 import {} from 'ionicons/icons'
+import TreeItem from '@/components/TreeItem'
 
 export default {
 	data() {
-		return { animation: null }
+		return {
+			treeData: {
+				name: 'My Tree',
+				children: [
+					{ name: 'hello' },
+					{ name: 'wat' },
+					{
+						name: 'child folder',
+						children: [
+							{
+								name: 'child folder',
+								children: [{ name: 'badge', badge: 5 }, { name: 'wat' }],
+							},
+							{ name: 'hello' },
+							{ name: 'wat' },
+							{
+								name: 'child folder',
+								children: [{ name: 'hello' }, { name: 'wat' }],
+							},
+						],
+					},
+				],
+			},
+		}
 	},
-	components: { anime, IonPage, IonHeader, IonToolbar, IonTitle, IonContent },
-	mounted() {
-		this.animation = anime({
-			targets: '.us',
-			translateX: 200,
-			scale: 0.5,
-			autoplay: false,
-		})
+	components: {
+		TreeItem,
+		IonPage,
+		IonHeader,
+		IonToolbar,
+		IonTitle,
+		IonContent,
 	},
 	methods: {
-		move(e) {
-			// console.log(e)
-			console.log(e.detail.scrollTop)
-			this.animation.seek(e.detail.scrollTop)
+		makeFolder: function(item) {
+			item.children = []
+			this.addItem(item)
+		},
+		addItem: function(item) {
+			item.children.push({
+				name: 'new stuff',
+			})
 		},
 	},
 }
 </script>
 
 <style scoped lang="scss">
-.us {
-	width: 100px;
-	height: 100px;
-	background: #ccc;
-	margin-top: 2rem;
+.tree {
+	list-style: none;
+	padding: 0;
+	margin-left: 1rem;
 }
 </style>

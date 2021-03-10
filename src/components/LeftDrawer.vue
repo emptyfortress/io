@@ -18,6 +18,7 @@ IonMenu(side="start" menu-id="left" content-id="main" type="overlay")
 
 <script>
 import anime from 'animejs/lib/anime.es.js'
+
 import {
 	IonMenu,
 	IonAvatar,
