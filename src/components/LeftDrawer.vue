@@ -202,7 +202,6 @@ export default {
 	padding: 0;
 	margin: 0;
 	margin-left: 12px;
-	/* border-bottom: 1px solid var(--ion-color-step-150); */
 	border-bottom: 1px solid #ccc;
 	.dark & {
 		border-bottom: 1px solid var(--ion-border-color);
