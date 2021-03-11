@@ -4,6 +4,7 @@ IonPage
 		IonToolbar
 			IonTitle note
 	IonContent
+		IonIcon(src="assets/img/rec.svg" color="primary").bl
 </template>
 
 <script>
@@ -13,14 +14,19 @@ import {
 	IonToolbar,
 	IonTitle,
 	IonContent,
+	IonIcon,
 } from '@ionic/vue'
 
 export default {
 	data() {
 		return {}
 	},
-	components: { IonPage, IonHeader, IonToolbar, IonTitle, IonContent },
+	components: { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon },
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.bl {
+	font-size: 5rem;
+}
+</style>

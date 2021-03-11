@@ -1,7 +1,7 @@
 <template lang="pug">
 IonMenu( side="end" menu-id="right" content-id="main" type="push")
 	IonContent.all
-		IonImg(src="assets/img/darkMode.svg").boom
+		IonImg(src="assets/img/darkMode.svg" color="danger").boom
 		IonContent.nice.ion-padding
 			IonItem
 				IonLabel Dark mode
