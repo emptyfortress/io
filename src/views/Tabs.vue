@@ -153,4 +153,8 @@ ion-tab-bar {
 		font-size: 2.1rem;
 	}
 }
+.ionicon svg :host {
+	stroke: var(--ion-text-color);
+	fill: var(--ion-text-color);
+}
 </style>

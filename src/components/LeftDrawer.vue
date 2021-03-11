@@ -1,13 +1,13 @@
 <template lang="pug">
-IonMenu(side="start" menu-id="left" content-id="main" type="overlay")
+IonMenu(side="start" menu-id="left" content-id="main" type="overlay").mymenu
 	.topBlock
-		img(src="assets/img/logo1.svg").logo
+		img(src="assets/img/logo.svg").logo
 		.fio Орлов И.А.
 		.user
 			IonAvatar.av
 				img(src="assets/img/user0.svg")
 			.online
-			IonFabButton(size="small").exit
+			IonFabButton(size="small" color="primary").exit
 				IonIcon(:icon="logOutOutline" )
 	IonContent(scroll-events @ionScroll="move")
 		IonList
@@ -107,7 +107,7 @@ export default {
 		})
 		this.listAnimation = anime({
 			targets: '.topBlock',
-			height: 50,
+			height: 54,
 			easing: 'linear',
 			autoplay: false,
 		})
@@ -167,9 +167,9 @@ export default {
 .topBlock {
 	position: relative;
 	height: 250px;
-	/* border-bottom: 1px solid #ccc; */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	background: var(--ion-color-step-100);
 }
 .logo {
 	width: 50%;
@@ -195,13 +195,18 @@ export default {
 .fio {
 	text-align: center;
 	margin-top: 1.5rem;
+	color: var(--ion-text-color);
 }
 .tree {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	margin-left: 12px;
+	/* border-bottom: 1px solid var(--ion-color-step-150); */
 	border-bottom: 1px solid #ccc;
+	.dark & {
+		border-bottom: 1px solid var(--ion-border-color);
+	}
 }
 .hid {
 	height: 200px;
