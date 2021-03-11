@@ -5,23 +5,23 @@ IonPage
 			IonButtons(slot="start")
 				IonBackButton
 			IonTitle home small
-	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="tab").ion-padding
+	IonContent( :fullscreen="true" :scroll-events="true").ion-padding
 		IonHeader( collapse="condense" )
 			IonToolbar
 				IonTitle( size="large" ) Home
-		ul.tree
-			TreeItem(class="item" :item="treeData" @make-folder="makeFolder" @add-item="addItem")
 
 </template>
 
 <script>
+import { treeData, menuList } from '@/data.js'
 import {
 	IonPage,
+	IonButtons,
+	IonBackButton,
+	IonContent,
 	IonHeader,
 	IonToolbar,
 	IonTitle,
-	IonContent,
-	IonIcon,
 } from '@ionic/vue'
 
 import {} from 'ionicons/icons'
@@ -30,51 +30,21 @@ import TreeItem from '@/components/TreeItem'
 export default {
 	data() {
 		return {
-			treeData: {
-				name: 'My Tree',
-				children: [
-					{ name: 'hello' },
-					{ name: 'wat' },
-					{
-						name: 'child folder',
-						selected: true,
-						children: [
-							{
-								name: 'child folder',
-								children: [{ name: 'badge', badge: 5 }, { name: 'wat' }],
-							},
-							{ name: 'hello' },
-							{ name: 'wat' },
-							{
-								name: 'child folder',
-								children: [{ name: 'hello' }, { name: 'wat' }],
-							},
-						],
-					},
-				],
-			},
+			treeData,
+			menuList,
 		}
 	},
 	components: {
 		TreeItem,
 		IonPage,
+		IonButtons,
+		IonBackButton,
+		IonContent,
 		IonHeader,
 		IonToolbar,
 		IonTitle,
-		IonContent,
-		IonIcon,
 	},
-	methods: {
-		makeFolder: function(item) {
-			item.children = []
-			this.addItem(item)
-		},
-		addItem: function(item) {
-			item.children.push({
-				name: 'new stuff',
-			})
-		},
-	},
+	methods: {},
 }
 </script>
 

@@ -9,7 +9,6 @@ IonApp
 					IonTabs
 			IonFooter
 				Tabs
-
 	RightMenu
 
 </template>

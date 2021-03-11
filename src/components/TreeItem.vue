@@ -3,10 +3,11 @@ li
 	.flex(:class="{'sel' : item.selected}")
 		.chevron(@click="toggle"  v-show="isFolder" :class="{'open' : isOpen}")
 			IonIcon(:icon="chevronForwardOutline")
+		IonIcon(v-if="item.icon" :icon="item.icon").big
 		.myripple.ion-activatable.ripple-parent
 			.name {{ item.name}}
 			IonRippleEffect
-		IonBadge(color="primary" v-show="item.badge") 10
+		IonBadge(color="primary" v-show="item.badge") {{ item.badge}}
 	transition(name="slidex" mode="out-in")
 		ul(v-show="isOpen" v-if="isFolder")
 			TreeItem(class="item" v-for="(child, index) in item.children" :key="index" :item="child")
@@ -24,7 +25,7 @@ export default {
 	data: function() {
 		return {
 			chevronForwardOutline,
-			isOpen: false,
+			isOpen: true,
 		}
 	},
 	computed: {
@@ -51,8 +52,13 @@ li {
 	display: flex;
 	width: 100%;
 	padding: 0.5rem;
+	align-items: center;
 	margin: 0;
 	cursor: pointer;
+	.big {
+		font-size: 1.8rem;
+		margin-right: 0.5rem;
+	}
 	&.sel {
 		background: var(--ion-color-selection);
 	}
@@ -64,7 +70,7 @@ li {
 	width: 100%;
 }
 .item {
-	font-size: 1.1rem;
+	font-size: 1rem;
 	.chevron {
 		transition: 0.3s all;
 		margin-right: 0.3rem;

@@ -11,7 +11,7 @@
 			IonBadge(color="danger") 20
 		IonTabButton(tab="search" href="/search")
 			IonIcon(:icon="searchOutline")
-		IonTabButton(tab="")
+		IonTabButton(tab="null")
 IonFab(vertical="bottom" horizontal="end" :class="{'mov' : !tabbar}").fabb
 	IonFabButton(color="primary" @click="showAdd")
 		IonIcon(:icon="addOutline")

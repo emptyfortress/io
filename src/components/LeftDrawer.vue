@@ -2,23 +2,41 @@
 IonMenu(side="start" menu-id="left" content-id="main" type="overlay")
 	.topBlock
 		img(src="assets/img/logo1.svg").logo
-		.name Орлов И.А.
+		.fio Орлов И.А.
 		.user
 			IonAvatar.av
 				img(src="assets/img/user0.svg")
 			.online
 			IonFabButton(size="small").exit
 				IonIcon(:icon="logOutOutline" )
-	IonContent(scroll-events @ionScroll="move").lisst
+	IonContent(scroll-events @ionScroll="move")
 		IonList
-			IonItem(v-for="n in 30") Menu Item
-			IonItem
-				IonMenuToggle(routerLink="/tabs/page") to page
+			IonItem(v-for="item in menuList" lines="full").myripple.ion-activatable.ripple-parent
+				IonIcon(:icon="item.icon")
+				IonLabel {{ item.title }}
+				IonBadge(v-if="item.badge") {{ item.badge }}
+				IonRippleEffect
+			ul.tree
+				template(v-for="item in treeData" :key="item.id")
+					TreeItem(class="item" :item="item")
+			IonListHeader.hd Дополнительно
+			IonItem( lines="full").myripple.ion-activatable.ripple-parent
+				IonIcon(src="assets/icons/addScreen.svg")
+				IonLabel Добавить на гл.экран
+				IonRippleEffect
+			IonItem(v-for="item in menuList1" lines="full").myripple.ion-activatable.ripple-parent
+				IonIcon(:icon="item.icon")
+				IonLabel {{ item.title}}
+				IonBadge(v-if="item.badge") {{ item.badge }}
+				IonRippleEffect
+		.hid
 
 </template>
 
 <script>
 import anime from 'animejs/lib/anime.es.js'
+import TreeItem from '@/components/TreeItem'
+import { treeData, menuList, menuList1 } from '@/data.js'
 
 import {
 	IonMenu,
@@ -26,18 +44,23 @@ import {
 	IonFabButton,
 	IonContent,
 	IonList,
-	IonMenuToggle,
-	IonFooter,
+	IonListHeader,
 	IonItem,
 	IonIcon,
 	IonLabel,
+	IonBadge,
+	IonRippleEffect,
 } from '@ionic/vue'
-import { logOutOutline } from 'ionicons/icons'
+import { moonOutline, logOutOutline } from 'ionicons/icons'
 
 export default {
 	data() {
 		return {
+			moonOutline,
 			logOutOutline,
+			treeData,
+			menuList,
+			menuList1,
 			userAnimation: null,
 			listAnimation: null,
 			logoAnimation: null,
@@ -46,17 +69,19 @@ export default {
 		}
 	},
 	components: {
+		TreeItem,
 		anime,
 		IonMenu,
 		IonAvatar,
 		IonFabButton,
 		IonContent,
 		IonList,
-		IonMenuToggle,
-		IonFooter,
+		IonListHeader,
 		IonItem,
 		IonIcon,
 		IonLabel,
+		IonBadge,
+		IonRippleEffect,
 	},
 	mounted() {
 		this.userAnimation = anime({
@@ -74,7 +99,7 @@ export default {
 			autoplay: false,
 		})
 		this.nameAnimation = anime({
-			targets: '.name',
+			targets: '.fio',
 			translateY: -45,
 			translateX: -40,
 			easing: 'linear',
@@ -167,8 +192,28 @@ export default {
 	--box-shadow: none;
 	--color: var(--ion-color-primary);
 }
-.name {
+.fio {
 	text-align: center;
 	margin-top: 1.5rem;
+}
+.tree {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-left: 12px;
+	border-bottom: 1px solid #ccc;
+}
+.hid {
+	height: 200px;
+}
+.myripple {
+	position: relative;
+	ion-icon {
+		margin-right: 0.5rem;
+	}
+}
+.hd {
+	text-transform: uppercase;
+	margin-top: 4rem;
 }
 </style>
