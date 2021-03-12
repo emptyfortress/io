@@ -9,26 +9,20 @@ IonPage
 		IonHeader( collapse="condense" )
 			IonToolbar
 				IonTitle( size="large" ) Сводка
-		IonSlides(pager="true" :options="slideOpts").sl
-			IonSlide
+		IonSlides(pager="true" ref="slides" id="slides" @ionSlideDidChange="test").sl
+			IonSlide(v-for="slide in slides")
 				IonCard
-					IonCardHeader
-						p header
 					IonCardContent
-						IonCardSubtitle
-							p suttitle
-						IonCardTitle
-							p title
-			IonSlide
-				h1 Slide 2
-			IonSlide
-				h1 Slide 3
+						IonCardTitle(color="primary")
+							.tit {{ slide.name }}
+						apexchart(width="280" :options="chartOptions" :series="series").char
 		IonList
 			IonItem(v-for="n in 30")
 				IonLabel item {{ n }}
 </template>
 
 <script>
+import VueApexCharts from 'vue3-apexcharts'
 import { treeData, menuList } from '@/data.js'
 import {
 	IonPage,
@@ -58,13 +52,39 @@ export default {
 		return {
 			treeData,
 			menuList,
-			// slideOpts: {
-			// 	initialSlide: 2,
-			// 	speed: 400,
-			// },
+			slides: [{ name: 'Новое' }, { name: 'Срочное' }, { name: 'Важное' }],
+			chartOptions: {
+				colors: [
+					'#aeb8c2',
+					'#99a3ad',
+					'#7c858d',
+					'#66707a',
+					'#535c65',
+					'#40474f',
+				],
+				legend: {
+					show: false,
+				},
+				dataLabels: {
+					enabled: true,
+				},
+				chart: {
+					background: 'none',
+					id: 'vuechart-example',
+					type: 'donut',
+					events: {
+						dataPointSelection: function(e, a, config) {
+							console.log(config.dataPointIndex)
+						},
+					},
+				},
+				labels: ['Новые', 'Просрочено', 'Завершено', 'В работе'],
+			},
+			series: [44, 55, 41, 77],
 		}
 	},
 	components: {
+		apexchart: VueApexCharts,
 		TreeItem,
 		IonPage,
 		IonButtons,
@@ -84,7 +104,12 @@ export default {
 		IonItem,
 		IonLabel,
 	},
-	methods: {},
+	methods: {
+		async test() {
+			let result = await document.querySelector('#slides').getActiveIndex()
+			console.log(result)
+		},
+	},
 }
 </script>
 
@@ -104,7 +129,12 @@ ion-card {
 	}
 }
 .sl {
-	height: 60%;
-	padding-bottom: 0.5rem;
+	padding-bottom: 1.5rem;
+}
+.tit {
+	font-size: 1.3rem;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-align: left;
 }
 </style>
