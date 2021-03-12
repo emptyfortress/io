@@ -9,21 +9,19 @@ IonPage
 		IonHeader( collapse="condense" )
 			IonToolbar
 				IonTitle( size="large" ) Сводка
-		IonSlides(pager="true" ref="slides" id="slides" @ionSlideDidChange="test").sl
+		IonSlides(pager="true" ref="slides" id="slides" :options="slideOpt" @ionSlideDidChange="test").sl
 			IonSlide(v-for="slide in slides")
-				IonCard
-					IonCardContent
-						IonCardTitle(color="primary")
-							.tit {{ slide.name }}
-						apexchart(width="280" :options="chartOptions" :series="series").char
-		IonList
+				Chart(:slide="slide")
+		transition(name="fade" mode="out-in")
+			h5(v-if="currentSlide === 0") Вновь поступившие задания и документы
+			h5(v-else-if="currentSlide === 1") Истекают сроки исполнения
+			h5(v-else-if="currentSlide === 2") Задания и документы на контроле
+		IonList(v-show="new")
 			IonItem(v-for="n in 30")
 				IonLabel item {{ n }}
 </template>
 
 <script>
-import VueApexCharts from 'vue3-apexcharts'
-import { treeData, menuList } from '@/data.js'
 import {
 	IonPage,
 	IonButtons,
@@ -46,45 +44,21 @@ import {
 
 import {} from 'ionicons/icons'
 import TreeItem from '@/components/TreeItem'
+import Chart from '@/components/Chart'
 
 export default {
 	data() {
 		return {
-			treeData,
-			menuList,
-			slides: [{ name: 'Новое' }, { name: 'Срочное' }, { name: 'Важное' }],
-			chartOptions: {
-				colors: [
-					'#aeb8c2',
-					'#99a3ad',
-					'#7c858d',
-					'#66707a',
-					'#535c65',
-					'#40474f',
-				],
-				legend: {
-					show: false,
-				},
-				dataLabels: {
-					enabled: true,
-				},
-				chart: {
-					background: 'none',
-					id: 'vuechart-example',
-					type: 'donut',
-					events: {
-						dataPointSelection: function(e, a, config) {
-							console.log(config.dataPointIndex)
-						},
-					},
-				},
-				labels: ['Новые', 'Просрочено', 'Завершено', 'В работе'],
-			},
-			series: [44, 55, 41, 77],
+			slides: [
+				{ id: 0, name: 'Новое' },
+				{ id: 1, name: 'Срочное' },
+				{ id: 2, name: 'Контроль' },
+			],
+			currentSlide: 0,
 		}
 	},
 	components: {
-		apexchart: VueApexCharts,
+		Chart,
 		TreeItem,
 		IonPage,
 		IonButtons,
@@ -107,7 +81,7 @@ export default {
 	methods: {
 		async test() {
 			let result = await document.querySelector('#slides').getActiveIndex()
-			console.log(result)
+			this.currentSlide = result
 		},
 	},
 }
@@ -119,22 +93,10 @@ export default {
 	padding: 0;
 	margin: 0;
 }
-ion-card {
-	width: 100%;
-	height: 100%;
-	background: var(--ion-color-primary-contrast);
-	.dark & {
-		background: var(--ion-color-step-100);
-		border: 1px solid var(--ion-color-step-200);
-	}
-}
 .sl {
 	padding-bottom: 1.5rem;
 }
-.tit {
-	font-size: 1.3rem;
-	font-weight: 400;
-	text-transform: uppercase;
-	text-align: left;
+h5 {
+	text-align: center;
 }
 </style>
