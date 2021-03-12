@@ -73,7 +73,8 @@ const chart1 = {
 		type: 'donut',
 		events: {
 			dataPointSelection: function(e, a, config) {
-				console.log(config)
+				this.$emit('fuck', config.dataPointIndex)
+				console.log(config.dataPointIndex)
 			},
 		},
 	},
@@ -145,6 +146,11 @@ const chart3 = {
 		},
 	},
 }
+
+// const test = function() {
+// 	console.log('foooooo')
+// }
+// const test = this.test
 
 const series1 = [4, 5, 12]
 const series2 = [{ data: [1, 4, 2, 7] }]

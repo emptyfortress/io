@@ -3,7 +3,7 @@ IonCard
 	IonCardContent
 		IonCardTitle(color="primary")
 			.title {{ slide.name }}
-		apexchart(v-if="slide.id === 0" height="240" :options="chart1" :series="series1")
+		apexchart(v-if="slide.id === 0" height="240" :options="chart1" :series="series1" @fuck="test")
 		apexchart(v-else-if="slide.id === 1"  height="220" :options="chart2" :series="series2")
 		apexchart(v-else  height="220" :options="chart3" :series="series3")
 </template>
@@ -31,6 +31,11 @@ export default {
 		IonCard,
 		IonCardContent,
 		IonCardTitle,
+	},
+	methods: {
+		test() {
+			console.log('foooo')
+		},
 	},
 }
 </script>
