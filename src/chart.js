@@ -54,7 +54,6 @@ const chart1 = {
 			},
 		},
 	},
-	// colors: ['#aeb8c2', '#99a3ad', '#7c858d', '#66707a', '#535c65', '#40474f'],
 	legend: {
 		show: false,
 		position: 'bottom',
@@ -72,9 +71,9 @@ const chart1 = {
 		background: 'none',
 		type: 'donut',
 		events: {
-			dataPointSelection: function(e, a, config) {
-				this.$emit('fuck', config.dataPointIndex)
-				console.log(config.dataPointIndex)
+			dataPointSelection: (e, a, config) => {
+				console.log(e, a, config)
+				// test(config.dataPointIndex)
 			},
 		},
 	},
@@ -146,11 +145,6 @@ const chart3 = {
 		},
 	},
 }
-
-// const test = function() {
-// 	console.log('foooooo')
-// }
-// const test = this.test
 
 const series1 = [4, 5, 12]
 const series2 = [{ data: [1, 4, 2, 7] }]
