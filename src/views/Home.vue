@@ -9,16 +9,16 @@ IonPage
 		IonHeader( collapse="condense" )
 			IonToolbar
 				IonTitle( size="large" ) Сводка
-		IonSlides(pager="true" ref="slides" id="slides" :options="slideOpt" @ionSlideDidChange="test").sl
+		IonSlides(pager="true" ref="slides" id="slides" @ionSlideDidChange="test").sl
 			IonSlide(v-for="slide in slides")
 				Chart(:slide="slide")
 		transition(name="fade" mode="out-in")
 			h5(v-if="currentSlide === 0") Вновь поступившие задания и документы
 			h5(v-else-if="currentSlide === 1") Истекают сроки исполнения
 			h5(v-else-if="currentSlide === 2") Задания и документы на контроле
-		IonList(v-show="new")
-			IonItem(v-for="n in 30")
-				IonLabel item {{ n }}
+		//- IonList(v-show="new")
+		//- 	IonItem(v-for="n in 30")
+		//- 		IonLabel item {{ n }}
 </template>
 
 <script>
