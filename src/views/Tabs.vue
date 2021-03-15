@@ -1,6 +1,8 @@
 <template lang="pug">
 .pack(:class="{ 'mov' : !tabbar}")
-	IonTabBar
+	IonTabBar(v-if="actionBar")
+		IonButton test
+	IonTabBar(v-else)
 		IonMenuButton.menu
 		IonTabButton(tab="home" href="/home")
 			IonIcon( :icon="speedometerOutline" )
@@ -20,6 +22,7 @@ IonActionSheet(:is-open="add" header="Albums" :buttons="buttons" @onDidDismiss="
 
 <script>
 import {
+	IonButton,
 	IonTabBar,
 	IonMenuButton,
 	IonBadge,
@@ -42,6 +45,7 @@ import {
 export default {
 	name: 'Tabs',
 	components: {
+		IonButton,
 		IonTabBar,
 		IonMenuButton,
 		IonBadge,
@@ -105,6 +109,9 @@ export default {
 		}
 	},
 	computed: {
+		// actionBar() {
+		// 	return this.$store.getters.actionBar
+		// },
 		tabClass() {
 			if (!this.tabbar) {
 				return 'mov'
@@ -153,6 +160,7 @@ ion-tab-bar {
 		font-size: 2.1rem;
 	}
 }
+
 .ionicon svg :host {
 	stroke: var(--ion-text-color);
 	fill: var(--ion-text-color);

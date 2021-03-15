@@ -3,7 +3,7 @@ IonCard
 	IonCardContent
 		IonCardTitle(color="primary")
 			.title {{ slide.name }}
-		apexchart(v-if="slide.id === 0" height="240" :options="chart1" :series="series1" @select="test" id="chart1")
+		apexchart(v-if="slide.id === 0" height="240" :options="chart1" :series="series1" @select="select1")
 		apexchart(v-else-if="slide.id === 1"  height="220" :options="chart2" :series="series2")
 		apexchart(v-else  height="220" :options="chart3" :series="series3")
 </template>
@@ -31,8 +31,15 @@ export default {
 		}
 	},
 	methods: {
-		test(a) {
-			console.log('foooo ' + a)
+		select1(e) {
+			let smile = e.selectedDataPoints[0].length
+			if (smile > 0) {
+				this.$store.commit('setSelectedChart', e.dataPointIndex)
+				console.log(e.dataPointIndex)
+			} else {
+				this.$store.commit('setSelectedChart', null)
+				console.log(e.dataPointIndex)
+			}
 		},
 	},
 }

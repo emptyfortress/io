@@ -13,12 +13,16 @@ IonPage
 			IonSlide(v-for="slide in slides")
 				Chart(:slide="slide")
 		transition(name="fade" mode="out-in")
-			h5(v-if="currentSlide === 0") Вновь поступившие задания и документы
+			div(v-if="currentSlide === 0")
+				transition(name="fade" mode="out-in")
+					h5(v-if="selectedChart === null") Вновь поступившие задания и документы
+					h5(v-else) zag
 			h5(v-else-if="currentSlide === 1") Истекают сроки исполнения
 			h5(v-else-if="currentSlide === 2") Задания и документы на контроле
-		//- IonList(v-show="new")
-		//- 	IonItem(v-for="n in 30")
-		//- 		IonLabel item {{ n }}
+		transition(name="slideY" mode="out-in")
+			IonList(v-show="selectedChart !== null")
+				IonItem(v-for="n in 30")
+					IonLabel item {{ n }}
 </template>
 
 <script>
@@ -56,6 +60,11 @@ export default {
 			],
 			currentSlide: 0,
 		}
+	},
+	computed: {
+		selectedChart() {
+			return this.$store.getters.selectedChart
+		},
 	},
 	components: {
 		Chart,

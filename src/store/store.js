@@ -3,21 +3,21 @@ import { createStore } from 'vuex'
 export const store = createStore({
 	state () {
 		return {
-			count: 0,
-			tabbar: true,
 			dark: false,
+			tabbar: true,
+			selectedChart: null,
 		}
 	},
 	getters: {
-		count: state => { return state.count },
-		tabbar: state => { return state.tabbar },
 		dark: state => { return state.dark },
+		tabbar: state => { return state.tabbar },
+		selectedChart: state => { return state.selectedChart },
+
 	},
 	mutations: {
-		increment (state) {
-			state.count++
-		},
 		toggleTabbar (state) { state.tabbar = !state.tabbar },
-		toggleDark (state) { state.dark = !state.dark }
+		toggleDark (state) { state.dark = !state.dark },
+		setSelectedChart (state, payload) { state.selectedChart = payload },
+
 	}
 })

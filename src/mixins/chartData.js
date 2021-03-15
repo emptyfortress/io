@@ -74,9 +74,11 @@ const charts = {
 					background: 'none',
 					type: 'donut',
 					events: {
-						dataPointSelection: (e, a, config) => {
-							console.log(config)
-							this.test(config.dataPointIndex)
+						dataPointSelection: (_, __, config) => {
+							// console.log(config)
+							// console.log('my')
+							// console.log(config.selectedDataPoints[0].length)
+							this.select1(config)
 						},
 					},
 				},
