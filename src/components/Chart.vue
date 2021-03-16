@@ -32,15 +32,14 @@ export default {
 	},
 	methods: {
 		select1(e) {
+			let total = e.w.globals.series[e.dataPointIndex]
+			this.$store.commit('setTotal', total)
 			let smile = e.selectedDataPoints[0].length
 			if (smile > 0) {
-				// this.$store.commit('setSelectedChart', e.dataPointIndex)
 				this.$store.commit('setSelectedChart', {
 					label: e.w.config.labels[e.dataPointIndex],
 					index: e.dataPointIndex,
 				})
-				// console.log(e.dataPointIndex)
-				// console.log(e.w.config.labels[e.dataPointIndex])
 			} else {
 				this.$store.commit('setSelectedChart', null)
 				console.log(e.dataPointIndex)

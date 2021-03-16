@@ -16,7 +16,10 @@ IonPage
 			div(v-if="currentSlide === 0")
 				transition(name="fade" mode="out-in")
 					h5(v-if="selectedChart === null") Новые задания и документы
-					h5(v-else) {{ selectedChart.label }}
+					ion-row(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
+						.tot {{ selectedChart.label }}
+							span ({{ total }})
+						IonButton(fill="clear") Прочитать все
 			h5(v-else-if="currentSlide === 1") Истекают сроки исполнения
 			h5(v-else-if="currentSlide === 2") Задания и документы на контроле
 		transition(name="slideY" mode="out-in")
@@ -41,15 +44,10 @@ import {
 	IonToolbar,
 	IonTitle,
 	IonSlides,
-	IonCard,
-	IonCardHeader,
-	IonCardContent,
-	IonCardSubtitle,
-	IonCardTitle,
 	IonSlide,
+	IonBadge,
+	IonButton,
 	IonList,
-	IonItem,
-	IonLabel,
 } from '@ionic/vue'
 
 export default {
@@ -62,7 +60,10 @@ export default {
 			],
 			currentSlide: 0,
 			items: [
-				{ id: 0, name: 'item 0 name very very long and selskjal lkja ' },
+				{
+					id: 0,
+					name: 'item 0 name very very long and very interesting fuck you ',
+				},
 				{ id: 1, name: 'item 1 name' },
 				{ id: 2, name: 'item 2 name' },
 				{ id: 3, name: 'item 3 name' },
@@ -71,6 +72,9 @@ export default {
 		}
 	},
 	computed: {
+		total() {
+			return this.$store.getters.total
+		},
 		selectedChart() {
 			return this.$store.getters.selectedChart
 		},
@@ -87,15 +91,10 @@ export default {
 		IonToolbar,
 		IonTitle,
 		IonSlides,
-		IonCard,
-		IonCardHeader,
-		IonCardContent,
-		IonCardSubtitle,
-		IonCardTitle,
 		IonSlide,
+		IonBadge,
+		IonButton,
 		IonList,
-		IonItem,
-		IonLabel,
 	},
 	methods: {
 		async test() {
@@ -122,8 +121,17 @@ export default {
 }
 h5 {
 	text-align: center;
+	font-weight: bold;
 }
 .mol {
 	margin-bottom: 4rem;
+}
+.tot {
+	font-weight: 600;
+	font-size: 1.1rem;
+	span {
+		font-weight: 400;
+		margin-left: 0.5rem;
+	}
 }
 </style>
