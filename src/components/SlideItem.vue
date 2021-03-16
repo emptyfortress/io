@@ -9,7 +9,7 @@ IonItemSliding()
 		IonNote(slot="end").note
 			div 10:45 AM
 			.file
-				IonIcon(:icon="documentAttachOutline")
+				IonIcon(src="assets/icons/attach.svg")
 				span 5
 	IonItemOptions(side="end" @ionSwipe="some")
 		IonItemOption(expandable)
