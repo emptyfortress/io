@@ -28,3 +28,13 @@
 .fade-leave-to {
 	opacity: 0;
 }
+
+.listX-enter-active,
+.listX-leave-active {
+	transition: 0.5s ease all;
+}
+.listX-enter-from,
+.listX-leave-to {
+	opacity: 0;
+	transform: translateX(-100%);
+}

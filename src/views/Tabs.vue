@@ -5,7 +5,7 @@
 	IonTabBar(v-else)
 		IonMenuButton.menu
 		IonTabButton(tab="home" href="/home")
-			IonIcon( :icon="speedometerOutline" )
+			IonIcon( :icon="easelOutline" )
 		IonTabButton(tab="folders" href="/folders")
 			IonIcon( :icon="folderOpenOutline")
 		IonTabButton(tab="notifications" href="/notifications")
@@ -33,13 +33,12 @@ import {
 	IonActionSheet,
 } from '@ionic/vue'
 import {
-	menu,
 	addOutline,
-	folderOpenOutline,
-	speedometerOutline,
-	addCircleOutline,
 	searchOutline,
 	notificationsOutline,
+	folderOpenOutline,
+	easelOutline,
+	menu,
 } from 'ionicons/icons'
 
 export default {
@@ -57,14 +56,13 @@ export default {
 	},
 	data() {
 		return {
-			add: false,
-			menu,
 			addOutline,
-			folderOpenOutline,
-			speedometerOutline,
-			addCircleOutline,
 			searchOutline,
 			notificationsOutline,
+			folderOpenOutline,
+			easelOutline,
+			menu,
+			add: false,
 			buttons: [
 				{
 					text: 'Delete',

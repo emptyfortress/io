@@ -1,0 +1,641 @@
+[
+	{
+		"id": 0,
+		"folder": "",
+		"unread": false,
+		"files": 3,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "38 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "Archive.txt", "size": "234 kB", "type": "txt"},
+			{"name": "router.js", "size": "471 kB", "type": "js"}
+		],
+		"executor": "Гусев П.И.",
+		"controler": "Сумкин П.А.",
+		"controldate": "2018-08-25",
+		"author": "<Я>",
+		"title": "Тестовый нулевой объект",
+		"created": "2018-08-12",
+		"modified": "",
+		"deadline": "2018-09-25",
+		"status": "Не начато",
+		"descr": "Иными словами, манерничанье готично вызывает социально-психологический фактор. Фантазия заканчивает суггестивный этикет.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Завершить", "color": "success"}
+		]
+	},
+	{
+		"id": 1,
+		"folder": "",
+		"unread": false,
+		"files": 3,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "920 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "basket.doc", "size": "750 kB", "type": "doc"},
+			{"name": "logo.png", "size": "116 kB", "type": "png"}
+		],
+		"executor": "Гусев П.И.",
+		"author": "<Я>",
+		"title": "Использование маски в атрибутивном поиске",
+		"created": "2018-08-17",
+		"modified": "",
+		"deadline": "2018-09-23",
+		"status": "Не начато",
+		"descr": "Иными словами, манерничанье готично вызывает социально-психологический фактор. Фантазия заканчивает суггестивный этикет.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Завершить", "color": "success"},
+			{"button": "Подписать", "color": "success"}
+		]
+	},
+	{
+		"id": 2,
+		"folder": "",
+		"unread": true,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"executor": "Воробьев К.А.",
+		"author": "<Я>",
+		"title": "Интеграция с адресными системами (КЛАДР)",
+		"created": "2018-08-10",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-23",
+		"status": "В работе",
+		"descr": "Описание отсутствует",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Завершить", "color": "success"},
+			{"button": "Подписать", "color": "success"}
+		]
+	},
+	{
+		"id": 3,
+		"folder": "",
+		"unread": false,
+		"files": 4,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "822 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "mainfile.doc", "size": "374 kB", "type": "doc"},
+			{"name": "store.js", "size": "469 kB", "type": "js"},
+			{"name": "assets.pdf", "size": "230 kB", "type": "pdf"}
+		],
+		"executor": "Синичкина Г.И.",
+		"controler": "Сумкин П.А.",
+		"controldate": "2018-08-25",
+		"author": "<Я>",
+		"title": "Название вида - локализация, отображаемое название и комментарии",
+		"created": "2018-08-10",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-23",
+		"status": "В работе",
+		"descr": "Здесь описание здесь описание",
+		"actions": [
+			{"button": "Ознакомиться", "color": "success"}
+		]
+	},
+	{
+		"id": 4,
+		"folder": "",
+		"unread": true,
+		"files": 2,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "344 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "absentFile.doc", "size": "651 kB", "type": "doc"}
+		],
+		"executor": "Соловьева А.П.",
+		"controler": "Сумкин П.А.",
+		"controldate": "2018-08-25",
+		"author": "<Я>",
+		"title": "Настройка момента проверки обязательности полей",
+		"created": "2018-08-12",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-25",
+		"status": "Делегировано",
+		"descr": "Добавлю, что переходное состояние иллюстрирует самодостаточный драматизм, так Г.Корф формулирует собственную антитезу. Комедия, согласно традиционным представлениям, вызывает незначительный классический реализм, это же положение обосновывал Ж.Польти в книге 'Тридцать шесть драматических ситуаций'.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Отозвать", "color": "error"},
+			{"button": "Подписать", "color": "success"}
+		]
+	},
+	{
+		"id": 5,
+		"folder": "",
+		"unread": true,
+		"files": 8,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "707 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "dopfile.doc", "size": "522 kB", "type": "doc"},
+			{"name": "filter-active.doc", "size": "506 kB", "type": "doc"},
+			{"name": "maindoc.doc", "size": "2 kB", "type": "doc"},
+			{"name": "main.js", "size": "949 kB", "type": "js"},
+			{"name": "folder.doc", "size": "554 kB", "type": "doc"},
+			{"name": "Sound.txt", "size": "433 kB", "type": "txt"},
+			{"name": "Home.txt", "size": "444 kB", "type": "txt"}
+		],
+		"executor": "Соловьева А.П.",
+		"author": "<Я>",
+		"title": "Настройка условий нумератора - И, ИЛИ",
+		"created": "2018-08-12",
+		"modified": "",
+		"deadline": "2018-09-25",
+		"status": "Не начато",
+		"descr": "Восприятие сотворчества аккумулирует глубокий этикет.",
+		"actions": [
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	},
+	{
+		"id": 6,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"executor": "Жаворонков К.К.",
+		"author": "<Я>",
+		"title": "Настройка прав на отдельные нумераторы",
+		"created": "2018-08-10",
+		"modified": "",
+		"deadline": "2018-09-23",
+		"overdue": true,
+		"status": "В работе",
+		"descr": "Компенсаторная функция возможна. Элегия имитирует персональный синтез искусств.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"}
+		]
+	},
+	{
+		"id": 7,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"report": [
+			{"name": "Отчет.txt", "size": "912 kB", "type": "txt"}
+		],
+		"executor": "Уткин И.И",
+		"author": "<Я>",
+		"title": "Создание Заданий и ГЗ по документам. Шаблоны",
+		"created": "2018-08-12",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-23",
+		"status": "Завершено",
+		"descr": "вобода понимает под собой сенсибельный закон исключённого третьего. Освобождение, конечно, рефлектирует примитивный позитивизм. Суждение, следовательно, порождает и обеспечивает даосизм.",
+		"actions": [
+			{"button": "В архив", "color": ""}
+		]
+	},
+	{
+		"id": 8,
+		"folder": "",
+		"unread": false,
+		"files": 3,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "53 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "directives.pdf", "size": "54 kB", "type": "pdf"},
+			{"name": "filter-remove.doc", "size": "559 kB", "type": "doc"}
+		],
+		"executor": "Орлов П.П.",
+		"controler": "Сумкин П.А.",
+		"controldate": "2018-08-25",
+		"author": "<Я>",
+		"title": "Использование url в папках - отключение проверки соответствия формата",
+		"created": "2018-08-17",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-25",
+		"status": "На проверке",
+		"descr": "Идеи гедонизма занимают центральное место в утилитаризме Милля и Бентама",
+		"actions": [
+			{"button": "Делегировать", "color": "info"}
+		]
+	},
+	{
+		"id": 9,
+		"folder": "",
+		"unread": false,
+		"files": 2,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "281 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "refresh.doc", "size": "692 kB", "type": "doc"}
+		],
+		"executor": "Синичкина Г.И.",
+		"author": "<Я>",
+		"title": "Настройка риббона Навигатора",
+		"created": "2018-08-17",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-25",
+		"overdue": true,
+		"status": "В работе",
+		"descr": "однако гетерономная этика оспособляет трансцендентальный мир",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	},
+	{
+		"id": 10,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"executor": "Уткин И.И",
+		"controler": "Сумкин П.А.",
+		"controldate": "2018-08-25",
+		"author": "<Я>",
+		"title": "Регулярная прецессия трансформирует гирогоризонт",
+		"created": "2018-08-10",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-23",
+		"status": "В работе",
+		"descr": "Мир может быть получен из опыта. Сомнение создает интеллект. Реальность осмысляет гений.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	},
+	{
+		"id": 11,
+		"folder": "",
+		"unread": false,
+		"files": 3,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "412 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "microphone.doc", "size": "740 kB", "type": "doc"},
+			{"name": "nmiddle.doc", "size": "178 kB", "type": "doc"}
+		],
+		"executor": "Воробьев К.А.",
+		"author": "<Я>",
+		"title": "Период апериодичен",
+		"created": "2018-08-12",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-23",
+		"status": "На проверке",
+		"descr": "Отношение к современности трогательно наивно. Катарсис контролирует конфликт.",
+		"actions": [
+			{"button": "Отозвать", "color": "error"},
+			{"button": "Завершить", "color": "success"}
+		]
+	},
+	{
+		"id": 12,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"executor": "Синичкина Г.И.",
+		"author": "<Я>",
+		"title": "Прибор даёт большую проекцию",
+		"created": "2018-08-12",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-25",
+		"status": "В работе",
+		"descr": "Сомнение создает знак. Ощущение мира дискредитирует гедонизм. Актуализация, следовательно, порождена временем. Исчисление предикатов оспособляет из ряда вон выходящий смысл жизни.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Отозвать", "color": "error"}
+		]
+	},
+	{
+		"id": 13,
+		"folder": "",
+		"unread": false,
+		"files": 8,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "574 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "user1.doc", "size": "890 kB", "type": "doc"},
+			{"name": "moon.doc", "size": "982 kB", "type": "doc"},
+			{"name": "settings.doc", "size": "755 kB", "type": "doc"},
+			{"name": "AddTask.txt", "size": "706 kB", "type": "txt"},
+			{"name": "done.doc", "size": "598 kB", "type": "doc"},
+			{"name": "views.pdf", "size": "645 kB", "type": "pdf"},
+			{"name": "headers.json", "size": "585 kB", "type": "js"}
+		],
+		"executor": "Жаворонков К.К.",
+		"controler": "Сумкин П.А.",
+		"controldate": "2018-08-25",
+		"author": "<Я>",
+		"title": "Математический маятник",
+		"created": "2018-08-12",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-25",
+		"status": "Делегировано",
+		"descr": "Генетика заполняет сложный закон исключённого третьего.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	},
+	{
+		"id": 14,
+		"folder": "",
+		"unread": false,
+		"files": 3,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "4 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "ExpandItem.txt", "size": "459 kB", "type": "txt"}
+		],
+		"report": [
+			{"name": "Отчет.txt", "size": "271 kB", "type": "txt"}
+		],
+		"executor": "Гусев П.И.",
+		"author": "<Я>",
+		"title": "Вектор угловой скорости преобразует небольшой стабилизатор",
+		"created": "2018-08-12",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-23",
+		"status": "Завершено",
+		"descr": "Культ джайнизма включает в себя поклонение Махавире и другим тиртханкарам, поэтому врожденная интуиция ментально понимает под собой закон исключённого третьего.",
+		"actions": [
+			{"button": "В архив", "color": ""}
+		]
+	},
+	{
+		"id": 15,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"executor": "Орлов П.П.",
+		"author": "<Я>",
+		"title": "Астатическая система координат Булгакова",
+		"created": "2018-08-10",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-23",
+		"status": "В работе",
+		"descr": "Знак, как принято считать, осмысляет язык образов.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	},
+	{
+		"id": 16,
+		"folder": "",
+		"unread": false,
+		"files": 6,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "444 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "Alert.txt", "size": "797 kB", "type": "txt"},
+			{"name": "Attr.txt", "size": "978 kB", "type": "txt"},
+			{"name": "Bottom.xls", "size": "502 kB", "type": "xls"},
+			{"name": "context.doc", "size": "863 kB", "type": "doc"},
+			{"name": "Data.txt", "size": "966 kB", "type": "txt"}
+		],
+		"executor": "Уткин И.И",
+		"controler": "Сумкин П.А.",
+		"controldate": "2018-08-25",
+		"author": "<Я>",
+		"title": "заставляет перейти к более сложной системе",
+		"created": "2018-08-10",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-25",
+		"status": "Не начато",
+		"descr": "Согласно мнению известных философов, гештальтпсихология дискредитирует бабувизм",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Отозвать", "color": "error"}
+		]
+	},
+	{
+		"id": 17,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"executor": "Орлов П.П.",
+		"author": "<Я>",
+		"title": "Механическая система проецирует момент сил",
+		"created": "2018-08-12",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-23",
+		"status": "В работе",
+		"descr": "Суждение трансформирует знак.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Отозвать", "color": "error"}
+		]
+	},
+	{
+		"id": 18,
+		"folder": "",
+		"unread": false,
+		"files": 8,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "463 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "HelloWorld.txt", "size": "900 kB", "type": "txt"},
+			{"name": "items.json", "size": "370 kB", "type": "js"},
+			{"name": "Min.txt", "size": "711 kB", "type": "txt"},
+			{"name": "MultiSelect.doc", "size": "697 kB", "type": "doc"},
+			{"name": "Split.txt", "size": "394 kB", "type": "txt"},
+			{"name": "Tiles.txt", "size": "678 kB", "type": "txt"},
+			{"name": "titles.json", "size": "984 kB", "type": "js"}
+		],
+		"executor": "Воробьев К.А.",
+		"author": "<Я>",
+		"title": "Кристалл притягивает торсионный экситон",
+		"created": "2018-08-10",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-25",
+		"status": "В работе",
+		"descr": "Мир может быть получен из опыта. Сомнение создает интеллект. Реальность осмысляет гений.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	},
+	{
+		"id": 19,
+		"folder": "",
+		"unread": false,
+		"files": 5,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "970 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "DataTable.txt", "size": "711 kB", "type": "txt"},
+			{"name": "star-full.doc", "size": "594 kB", "type": "doc"},
+			{"name": "DrawerRightContent.txt", "size": "974 kB", "type": "txt"},
+			{"name": "Min.txt", "size": "784 kB", "type": "txt"}
+		],
+		"executor": "Соловьева А.П.",
+		"author": "<Я>",
+		"title": "Магнит индуцирует ускоряющийся солитон",
+		"created": "2018-08-12",
+		"modified": "2018-08-15",
+		"deadline": "2018-09-23",
+		"status": "Не начато",
+		"descr": "Восприятие сотворчества аккумулирует глубокий этикет.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	},
+	{
+		"id": 20,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"executor": "Синичкина Г.И.",
+		"controler": "Сумкин П.А.",
+		"controldate": "2018-08-25",
+		"author": "<Я>",
+		"title": "Xимическое соединение отталкивает элементарный кристалл",
+		"created": "2018-08-17",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-23",
+		"status": "В работе",
+		"descr": "Воображение вызывает гений.",
+		"actions": [
+			{"button": "Завершить", "color": "success"}
+		]
+	},
+	{
+		"id": 21,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"report": [
+			{"name": "Отчет.txt", "size": "502 kB", "type": "txt"}
+		],
+		"executor": "Жаворонков К.К.",
+		"author": "<Я>",
+		"title": "отклоняет барионный экситон",
+		"created": "2018-08-12",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-23",
+		"status": "Завершено",
+		"descr": "Суждение трансформирует знак.",
+		"actions": [
+			{"button": "В архив", "color": ""}
+		]
+	},
+	{
+		"id": 22,
+		"folder": "",
+		"unread": false,
+		"files": 9,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "75 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "role.doc", "size": "939 kB", "type": "doc"},
+			{"name": "dopdoc.doc", "size": "842 kB", "type": "doc"},
+			{"name": "fingerprint.doc", "size": "332 kB", "type": "doc"},
+			{"name": "departments.json", "size": "361 kB", "type": "js"},
+			{"name": "dv-64.png", "size": "657 kB", "type": "png"},
+			{"name": "components.pdf", "size": "549 kB", "type": "pdf"},
+			{"name": "MultiSelect.txt", "size": "987 kB", "type": "txt"},
+			{"name": "contextFiles.txt", "size": "383 kB", "type": "txt"}
+		],
+		"executor": "Гусев П.И.",
+		"author": "<Я>",
+		"title": "Любое возмущение затухает, если объект немагнитен",
+		"created": "2018-08-10",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-25",
+		"status": "В работе",
+		"descr": "806",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	},
+	{
+		"id": 23,
+		"folder": "",
+		"unread": false,
+		"files": 2,
+		"dopfiles": [
+			{"name": "Приложение.txt", "size": "809 kB", "type": "txt"}
+		],
+		"filenames": [
+			{"name": "users.doc", "size": "26 kB", "type": "doc"}
+		],
+		"executor": "Соловьева А.П.",
+		"author": "<Я>",
+		"title": "Структурализм, конечно, абстрактен",
+		"created": "2018-08-12",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-25",
+		"status": "В работе",
+		"descr": "Восприятие сотворчества аккумулирует глубокий этикет.",
+		"actions": [
+			{"button": "Ознакомиться", "color": "success"},
+			{"button": "Делегировать", "color": "info"}
+		]
+	},
+	{
+		"id": 24,
+		"folder": "",
+		"unread": false,
+		"files": null,
+		"dopfiles": [],
+		"filenames": [],
+		"executor": "Уткин И.И",
+		"author": "<Я>",
+		"title": "Суждение представляет собой позитивизм",
+		"created": "2018-08-10",
+		"modified": "2018-08-13",
+		"deadline": "2018-09-25",
+		"status": "В работе",
+		"descr": "Отношение к современности трогательно наивно. Катарсис контролирует конфликт.",
+		"actions": [
+			{"button": "Делегировать", "color": "info"},
+			{"button": "Согласовать", "color": "accent"},
+			{"button": "Согл. с замеч.", "color": "yellow"},
+			{"button": "Отклонить", "color": "error"}
+		]
+	}
+]
