@@ -104,7 +104,6 @@ export default {
 		rem(e) {
 			console.log(e)
 			this.items = this.items.filter((item) => item.id !== e.id)
-			// console.log(e.target)
 		},
 	},
 }
