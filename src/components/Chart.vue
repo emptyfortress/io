@@ -15,7 +15,13 @@ import VueApexCharts from 'vue3-apexcharts'
 import { charts } from '@/mixins/chartData.js'
 
 export default {
-	props: { slide: Object },
+	props: {
+		slide: Object,
+		series1: {
+			type: Array,
+			required: false,
+		},
+	},
 	mixins: [charts],
 	components: {
 		apexchart: VueApexCharts,
@@ -25,7 +31,7 @@ export default {
 	},
 	data() {
 		return {
-			series1: [4, 5, 12],
+			// series1: [4, 5, 12],
 			series2: [{ data: [1, 4, 2, 7] }],
 			series3: [{ data: [8, 11, 3, 1] }],
 		}

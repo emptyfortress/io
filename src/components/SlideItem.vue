@@ -1,5 +1,5 @@
 <template lang="pug">
-IonItemSliding()
+IonItemSliding
 	IonItem
 		IonGrid.ion-no-padding.gr
 			IonRow
@@ -11,10 +11,10 @@ IonItemSliding()
 							div Не начато
 						h2 {{ item.title }}
 			IonRow
-				IonCol(size="9").col1
+				IonCol.col1
 					div Автор: {{ item.executor }}
 					div Срок: {{ item.deadline }}
-				IonCol.ion-text-end
+				IonCol(size="auto" v-if="item.files").ion-text-end
 					.file
 						IonIcon(src="assets/icons/attach.svg")
 						span {{ item.files }}
@@ -22,7 +22,7 @@ IonItemSliding()
 				IonCol.descr {{ item.descr }}
 	IonItemOptions(side="end" @ionSwipe="some")
 		IonItemOption(expandable)
-			IonIcon(slot="icon-only" :icon="mailOpenOutline" @click="$emit('read')")
+			IonIcon(slot="icon-only" :icon="mailOpenOutline" @click="$emit('read')") 
 	IonItemOptions(side="start")
 		IonItemOption(color="secondary")
 			IonIcon(slot="icon-only" :icon="arrowRedoOutline")
@@ -80,6 +80,7 @@ export default {
 </script>
 <style scoped lang="scss">
 h2 {
+	color: var(--ion-color-primary);
 	font-weight: 600;
 	margin-bottom: 0.5rem;
 	white-space: nowrap;
@@ -125,8 +126,8 @@ h2 {
 }
 .gr {
 	font-size: 0.9rem;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 12px;
+	padding-bottom: 12px;
 	width: calc(100%);
 }
 </style>

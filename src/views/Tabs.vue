@@ -107,9 +107,9 @@ export default {
 		}
 	},
 	computed: {
-		// actionBar() {
-		// 	return this.$store.getters.actionBar
-		// },
+		actionBar() {
+			return this.$store.getters.actionBar
+		},
 		tabClass() {
 			if (!this.tabbar) {
 				return 'mov'

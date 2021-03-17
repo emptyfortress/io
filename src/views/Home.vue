@@ -11,21 +11,18 @@ IonPage
 				IonTitle( size="large" ) Сводка
 		IonSlides(pager="true" ref="slides" id="slides" @ionSlideDidChange="test").sl
 			IonSlide(v-for="slide in slides")
-				Chart(:slide="slide")
-		transition(name="fade" mode="out-in")
-			div(v-if="currentSlide === 0")
-				transition(name="fade" mode="out-in")
-					h5(v-if="selectedChart === null") Новые задания и документы
-					ion-row(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
-						.tot {{ selectedChart.label }}
-							span ({{ total }})
-						IonButton(fill="clear") Прочитать все
-			h5(v-else-if="currentSlide === 1") Истекают сроки исполнения
-			h5(v-else-if="currentSlide === 2") Задания и документы на контроле
-		transition(name="slideY" mode="out-in")
-			IonList(v-show="selectedChart !== null" lines="full").mol
-				transition-group(name="listX")
-					SlideItem(v-for="item in tasks" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
+				Chart(:slide="slide" :series1="ser1")
+		div(v-if="currentSlide === 0")
+			h5(v-if="selectedChart === null") Новые задания и документы
+			IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
+				.tot {{ selectedChart.label }}
+					span ({{ total }})
+				IonButton(fill="clear" size="small" @click="readAll") Прочитать все
+		h5(v-else-if="currentSlide === 1") Истекают сроки исполнения
+		h5(v-else-if="currentSlide === 2") Задания и документы на контроле
+		IonList(v-show="currentSlide === 0 && selectedChart !== null" lines="full").mol
+			transition-group(name="listX")
+				SlideItem(v-for="item in filteredItems" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
 </template>
 
 <script>
@@ -47,7 +44,7 @@ import {
 	IonTitle,
 	IonSlides,
 	IonSlide,
-	IonBadge,
+	IonRow,
 	IonButton,
 	IonList,
 } from '@ionic/vue'
@@ -71,9 +68,30 @@ export default {
 		})
 	},
 	computed: {
-		...mapGetters(['total', 'selectedChart', 'items']),
+		...mapGetters(['selectedChart', 'items']),
+		filteredItems() {
+			return this.tasks.filter(
+				(item) => item.type === this.selectedChart?.label
+			)
+		},
+		total() {
+			return this.filteredItems.length
+		},
+		ser1() {
+			let temp = []
+			let ozn = this.tasks.filter((item) => item.type === 'На ознакомление')
+				.length
+			let isp = this.tasks.filter((item) => item.type === 'На исполнение')
+				.length
+			let vhod = this.tasks.filter((item) => item.type === 'Входящие').length
+			temp.push(ozn)
+			temp.push(isp)
+			temp.push(vhod)
+			return temp
+		},
 	},
 	components: {
+		axios,
 		SlideItem,
 		Chart,
 		TreeItem,
@@ -86,7 +104,7 @@ export default {
 		IonTitle,
 		IonSlides,
 		IonSlide,
-		IonBadge,
+		IonRow,
 		IonButton,
 		IonList,
 	},
@@ -96,9 +114,15 @@ export default {
 			this.currentSlide = result
 		},
 		rem(e) {
-			let all = this.tasks.filter(item => item.id !== e.id)
+			let all = this.tasks.filter((item) => item.id !== e.id)
 			this.tasks = all
 			this.$store.commit('setItems', all)
+		},
+		readAll() {
+			this.tasks = this.tasks.filter(
+				(item) => item.type !== this.selectedChart.label
+			)
+			this.$store.commit('setSelectedChart', null)
 		},
 	},
 }
@@ -122,7 +146,7 @@ h5 {
 }
 .tot {
 	font-weight: 600;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	span {
 		font-weight: 400;
 		margin-left: 0.5rem;
