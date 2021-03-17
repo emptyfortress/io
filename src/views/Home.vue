@@ -5,7 +5,7 @@ IonPage
 			IonButtons(slot="start")
 				IonBackButton
 			IonTitle Сводка
-	IonContent( :fullscreen="true" :scroll-events="true")
+	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="hideTab" @ionScrollEnd="showTab")
 		IonHeader( collapse="condense" )
 			IonToolbar
 				IonTitle( size="large" ) Сводка

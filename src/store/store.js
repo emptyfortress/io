@@ -19,6 +19,7 @@ export const store = createStore({
 	},
 	mutations: {
 		toggleTabbar (state) { state.tabbar = !state.tabbar },
+		setTabbar (state, payload) { state.tabbar = payload },
 		toggleDark (state) { state.dark = !state.dark },
 		setSelectedChart (state, payload) { state.selectedChart = payload },
 		setItems (state, payload) { state.items = payload},

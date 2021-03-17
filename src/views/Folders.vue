@@ -5,7 +5,7 @@ IonPage
 			IonButtons(slot="start")
 				IonBackButton
 			IonTitle Tab 2 small
-	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="tab").ion-padding
+	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="hideTab" @ionScrollEnd="showTab").ion-padding
 		IonHeader( collapse="condense" )
 			IonToolbar()
 				IonTitle( size="large" ) Tab 2
@@ -23,12 +23,12 @@ import {
 	IonToolbar,
 	IonTitle,
 } from '@ionic/vue'
-import ExploreContainer from '@/components/ExploreContainer.vue'
+
+import { useStore } from 'vuex'
 
 export default {
 	name: 'Tab2',
 	components: {
-		ExploreContainer,
 		IonPage,
 		IonButtons,
 		IonBackButton,
@@ -37,13 +37,12 @@ export default {
 		IonToolbar,
 		IonTitle,
 	},
-	methods: {
-		tab() {
-			this.$store.commit('toggleTabbar')
-		},
-		logScrolling(e) {
-			console.log(e)
-		},
+	setup() {
+		const store = useStore()
+		const hideTab = () => store.commit('setTabbar', false)
+		const showTab = () => store.commit('setTabbar', true)
+
+		return { hideTab, showTab }
 	},
 }
 </script>
