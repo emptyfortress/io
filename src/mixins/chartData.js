@@ -136,6 +136,11 @@ const charts = {
 				},
 				xaxis: {
 					categories: ['Не начато', 'В работе', 'Завершено', 'Делегировано'],
+					labels: {
+						formatter: function (value) {
+							return Number.parseInt(value)
+						}
+					},
 				},
 				fill: {
 					type: 'gradient',

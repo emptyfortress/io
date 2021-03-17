@@ -11,7 +11,7 @@ IonPage
 				IonTitle( size="large" ) Сводка
 		IonSlides(pager="true" ref="slides" id="slides" @ionSlideDidChange="test").sl
 			IonSlide(v-for="slide in slides")
-				Chart(:slide="slide" :series1="ser1")
+				Chart(:slide="slide" :series1="ser1" :series2="ser2" :series3="ser3")
 		div(v-if="currentSlide === 0")
 			h5(v-if="selectedChart === null") Новые задания и документы
 			IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
@@ -88,6 +88,47 @@ export default {
 			temp.push(isp)
 			temp.push(vhod)
 			return temp
+		},
+		ser2() {
+			let temp = []
+			let nach = this.tasks.filter((item) => item.deadline === 'Вчера').length
+			let rab = this.tasks.filter((item) => item.deadline === 'Сегодня').length
+			let zav = this.tasks.filter((item) => item.deadline === 'Завтра').length
+			let del = this.tasks.filter((item) => item.deadline === 'На неделе')
+				.length
+			temp.push(nach)
+			temp.push(rab)
+			temp.push(zav)
+			temp.push(del)
+			const entries = new Map([['data', temp]])
+			const obj = Object.fromEntries(entries)
+			let ar = []
+			ar.push(obj)
+			return ar
+		},
+		ser3() {
+			let temp = []
+			let nach = this.tasks.filter(
+				(item) => item.status === 'Не начато' && item.controler
+			).length
+			let rab = this.tasks.filter(
+				(item) => item.status === 'В работе' && item.controler
+			).length
+			let zav = this.tasks.filter(
+				(item) => item.status === 'Завершено' && item.controler
+			).length
+			let del = this.tasks.filter(
+				(item) => item.status === 'Делегировано' && item.controler
+			).length
+			temp.push(nach)
+			temp.push(rab)
+			temp.push(zav)
+			temp.push(del)
+			const entries = new Map([['data', temp]])
+			const obj = Object.fromEntries(entries)
+			let ar = []
+			ar.push(obj)
+			return ar
 		},
 	},
 	components: {

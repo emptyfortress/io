@@ -15,13 +15,7 @@ import VueApexCharts from 'vue3-apexcharts'
 import { charts } from '@/mixins/chartData.js'
 
 export default {
-	props: {
-		slide: Object,
-		series1: {
-			type: Array,
-			required: false,
-		},
-	},
+	props: ['slide', 'series1', 'series2', 'series3'],
 	mixins: [charts],
 	components: {
 		apexchart: VueApexCharts,
@@ -32,14 +26,12 @@ export default {
 	data() {
 		return {
 			// series1: [4, 5, 12],
-			series2: [{ data: [1, 4, 2, 7] }],
-			series3: [{ data: [8, 11, 3, 1] }],
+			/* series2: [{ data: [1, 4, 2, 7] }], */
+			// series3: [{ data: [8, 11, 3, 1] }],
 		}
 	},
 	methods: {
 		select1(e) {
-			let total = e.w.globals.series[e.dataPointIndex]
-			this.$store.commit('setTotal', total)
 			let smile = e.selectedDataPoints[0].length
 			if (smile > 0) {
 				this.$store.commit('setSelectedChart', {
