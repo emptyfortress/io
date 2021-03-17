@@ -5,17 +5,21 @@ IonItemSliding()
 			IonRow
 				IonCol
 					IonLabel
-						h2 {{ item.name }}
+						.num 
+							div {{item.number}}
+							div {{item.type}}
+							div Не начато
+						h2 {{ item.title }}
 			IonRow
 				IonCol(size="9").col1
-					div Автор: Иванов П.С.
-					div Срок: 24.11.2020
+					div Автор: {{ item.executor }}
+					div Срок: {{ item.deadline }}
 				IonCol.ion-text-end
 					.file
 						IonIcon(src="assets/icons/attach.svg")
-						span 5
+						span {{ item.files }}
 			IonRow
-				IonCol.descr Oceanic Next has joined your network laksj lask jla slaskjd las 
+				IonCol.descr {{ item.descr }}
 	IonItemOptions(side="end" @ionSwipe="some")
 		IonItemOption(expandable)
 			IonIcon(slot="icon-only" :icon="mailOpenOutline" @click="$emit('read')")
@@ -81,6 +85,23 @@ h2 {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	&::before {
+		content: '';
+		width: 0.5rem;
+		height: 0.5rem;
+		display: inline-block;
+		border-radius: 50%;
+		background: var(--ion-color-primary);
+		margin-right: 0.3rem;
+		margin-bottom: 0.1rem;
+	}
+}
+.num {
+	display: flex;
+	justify-content: space-between;
+	margin-right: 0.5rem;
+	/* font-weight: 300; */
+	font-size: 0.7rem;
 }
 .col1 {
 	font-weight: 300;

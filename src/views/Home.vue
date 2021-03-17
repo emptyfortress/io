@@ -25,13 +25,15 @@ IonPage
 		transition(name="slideY" mode="out-in")
 			IonList(v-show="selectedChart !== null" lines="full").mol
 				transition-group(name="listX")
-					SlideItem(v-for="item in items" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
+					SlideItem(v-for="item in tasks" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
 </template>
 
 <script>
 import TreeItem from '@/components/TreeItem'
 import Chart from '@/components/Chart'
 import SlideItem from '@/components/SlideItem'
+import axios from 'axios'
+import { mapGetters } from 'vuex'
 
 import {} from 'ionicons/icons'
 
@@ -59,25 +61,17 @@ export default {
 				{ id: 2, name: 'Важное' },
 			],
 			currentSlide: 0,
-			items: [
-				{
-					id: 0,
-					name: 'item 0 name very very long and very interesting fuck you ',
-				},
-				{ id: 1, name: 'item 1 name' },
-				{ id: 2, name: 'item 2 name' },
-				{ id: 3, name: 'item 3 name' },
-				{ id: 4, name: 'item 4 name' },
-			],
+			tasks: [],
 		}
 	},
+	created() {
+		axios.get('./tasks.json').then((response) => {
+			this.$store.commit('setItems', response.data)
+			this.tasks = response.data
+		})
+	},
 	computed: {
-		total() {
-			return this.$store.getters.total
-		},
-		selectedChart() {
-			return this.$store.getters.selectedChart
-		},
+		...mapGetters(['total', 'selectedChart', 'items']),
 	},
 	components: {
 		SlideItem,
@@ -102,8 +96,9 @@ export default {
 			this.currentSlide = result
 		},
 		rem(e) {
-			console.log(e)
-			this.items = this.items.filter((item) => item.id !== e.id)
+			let all = this.tasks.filter(item => item.id !== e.id)
+			this.tasks = all
+			this.$store.commit('setItems', all)
 		},
 	},
 }
