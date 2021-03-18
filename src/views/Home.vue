@@ -31,8 +31,6 @@ import Chart from '@/components/Chart'
 import SlideItem from '@/components/SlideItem'
 import axios from 'axios'
 
-import {} from 'ionicons/icons'
-
 import {
 	IonPage,
 	IonButtons,
@@ -79,24 +77,23 @@ export default {
 			{ id: 2, name: 'Важное' },
 		]
 		let currentSlide = ref(0)
-		let tasks = ref([])
-		// let selectedChart = ref(null)
 
+		let tasks = ref([])
 		axios.get('./tasks.json').then((response) => {
 			store.commit('setItems', response.data)
 			tasks.value = response.data
 		})
-
-		let selectedChart = computed(() => {
-			return store.getters.selectedChart
-		})
-		// let items = store.getters.items
 		let filteredItems = computed(() => {
 			return tasks.value.filter(
 				(item) => item.type === selectedChart.value?.label
 			)
 		})
+
 		let total = computed(() => filteredItems.value.length)
+
+		let selectedChart = computed(() => {
+			return store.getters.selectedChart
+		})
 
 		let ser1 = computed(() => {
 			let temp = []
