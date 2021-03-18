@@ -24,11 +24,7 @@ export default {
 		IonCardTitle,
 	},
 	data() {
-		return {
-			// series1: [4, 5, 12],
-			/* series2: [{ data: [1, 4, 2, 7] }], */
-			// series3: [{ data: [8, 11, 3, 1] }],
-		}
+		return {}
 	},
 	methods: {
 		select1(e) {
@@ -40,7 +36,6 @@ export default {
 				})
 			} else {
 				this.$store.commit('setSelectedChart', null)
-				console.log(e.dataPointIndex)
 			}
 		},
 	},
