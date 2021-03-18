@@ -78,6 +78,10 @@ export default {
 			{ id: 2, name: 'Важное' },
 		]
 		let currentSlide = ref(0)
+		const test = async () => {
+			let result = await document.querySelector('#slides').getActiveIndex()
+			currentSlide.value = result
+		}
 
 		let tasks = ref([])
 		axios.get('./tasks.json').then((response) => {
@@ -100,11 +104,6 @@ export default {
 		let sr2 = computed(() => chart2(tasks.value))
 		let sr3 = computed(() => chart3(tasks.value))
 
-		const test = async () => {
-			let result = await document.querySelector('#slides').getActiveIndex()
-			currentSlide.value = result
-		}
-
 		const rem = (e) => {
 			let all = tasks.value.filter((item) => item.id !== e.id)
 			tasks.value = all
@@ -118,6 +117,9 @@ export default {
 			store.commit('setSelectedChart', null)
 		}
 
+		const hideTab = () => store.commit('setTabbar', false)
+		const showTab = () => store.commit('setTabbar', true)
+
 		return {
 			slides,
 			currentSlide,
@@ -130,6 +132,8 @@ export default {
 			rem,
 			readAll,
 			selectedChart,
+			hideTab,
+			showTab,
 		}
 	},
 }
