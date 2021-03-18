@@ -9,7 +9,7 @@ IonPage
 		IonHeader( collapse="condense" )
 			IonToolbar
 				IonTitle( size="large" ) Сводка
-		IonSlides(pager="true" ref="slides" id="slides" @ionSlideDidChange="test").sl
+		IonSlides(pager="true" id="slides" @ionSlideDidChange="test").sl
 			IonSlide(v-for="slide in slides")
 				Chart(:slide="slide" :series1="ser1" :series2="ser2" :series3="ser3")
 		div(v-if="currentSlide === 0")
@@ -30,7 +30,6 @@ import TreeItem from '@/components/TreeItem'
 import Chart from '@/components/Chart'
 import SlideItem from '@/components/SlideItem'
 import axios from 'axios'
-import { mapGetters } from 'vuex'
 
 import {} from 'ionicons/icons'
 
@@ -49,88 +48,10 @@ import {
 	IonList,
 } from '@ionic/vue'
 
+import { ref, computed } from 'vue'
+import { useStore } from 'vuex'
+
 export default {
-	data() {
-		return {
-			slides: [
-				{ id: 0, name: 'Новое' },
-				{ id: 1, name: 'Срочное' },
-				{ id: 2, name: 'Важное' },
-			],
-			currentSlide: 0,
-			tasks: [],
-		}
-	},
-	created() {
-		axios.get('./tasks.json').then((response) => {
-			this.$store.commit('setItems', response.data)
-			this.tasks = response.data
-		})
-	},
-	computed: {
-		...mapGetters(['selectedChart', 'items']),
-		filteredItems() {
-			return this.tasks.filter(
-				(item) => item.type === this.selectedChart?.label
-			)
-		},
-		total() {
-			return this.filteredItems.length
-		},
-		ser1() {
-			let temp = []
-			let ozn = this.tasks.filter((item) => item.type === 'На ознакомление')
-				.length
-			let isp = this.tasks.filter((item) => item.type === 'На исполнение')
-				.length
-			let vhod = this.tasks.filter((item) => item.type === 'Входящие').length
-			temp.push(ozn)
-			temp.push(isp)
-			temp.push(vhod)
-			return temp
-		},
-		ser2() {
-			let temp = []
-			let nach = this.tasks.filter((item) => item.deadline === 'Вчера').length
-			let rab = this.tasks.filter((item) => item.deadline === 'Сегодня').length
-			let zav = this.tasks.filter((item) => item.deadline === 'Завтра').length
-			let del = this.tasks.filter((item) => item.deadline === 'На неделе')
-				.length
-			temp.push(nach)
-			temp.push(rab)
-			temp.push(zav)
-			temp.push(del)
-			const entries = new Map([['data', temp]])
-			const obj = Object.fromEntries(entries)
-			let ar = []
-			ar.push(obj)
-			return ar
-		},
-		ser3() {
-			let temp = []
-			let nach = this.tasks.filter(
-				(item) => item.status === 'Не начато' && item.controler
-			).length
-			let rab = this.tasks.filter(
-				(item) => item.status === 'В работе' && item.controler
-			).length
-			let zav = this.tasks.filter(
-				(item) => item.status === 'Завершено' && item.controler
-			).length
-			let del = this.tasks.filter(
-				(item) => item.status === 'Делегировано' && item.controler
-			).length
-			temp.push(nach)
-			temp.push(rab)
-			temp.push(zav)
-			temp.push(del)
-			const entries = new Map([['data', temp]])
-			const obj = Object.fromEntries(entries)
-			let ar = []
-			ar.push(obj)
-			return ar
-		},
-	},
 	components: {
 		axios,
 		SlideItem,
@@ -149,22 +70,119 @@ export default {
 		IonButton,
 		IonList,
 	},
-	methods: {
-		async test() {
-			let result = await document.querySelector('#slides').getActiveIndex()
-			this.currentSlide = result
-		},
-		rem(e) {
-			let all = this.tasks.filter((item) => item.id !== e.id)
-			this.tasks = all
-			this.$store.commit('setItems', all)
-		},
-		readAll() {
-			this.tasks = this.tasks.filter(
-				(item) => item.type !== this.selectedChart.label
+
+	setup() {
+		const store = useStore()
+		const slides = [
+			{ id: 0, name: 'Новое' },
+			{ id: 1, name: 'Срочное' },
+			{ id: 2, name: 'Важное' },
+		]
+		let currentSlide = ref(0)
+		let tasks = ref([])
+		// let selectedChart = ref(null)
+
+		axios.get('./tasks.json').then((response) => {
+			store.commit('setItems', response.data)
+			tasks.value = response.data
+		})
+
+		let selectedChart = computed(() => {
+			return store.getters.selectedChart
+		})
+		// let items = store.getters.items
+		let filteredItems = computed(() => {
+			return tasks.value.filter(
+				(item) => item.type === selectedChart.value?.label
 			)
-			this.$store.commit('setSelectedChart', null)
-		},
+		})
+		let total = computed(() => filteredItems.value.length)
+
+		let ser1 = computed(() => {
+			let temp = []
+			let ozn = tasks.value.filter((item) => item.type === 'На ознакомление')
+				.length
+			let isp = tasks.value.filter((item) => item.type === 'На исполнение')
+				.length
+			let vhod = tasks.value.filter((item) => item.type === 'Входящие').length
+			temp.push(ozn)
+			temp.push(isp)
+			temp.push(vhod)
+			return temp
+		})
+		let ser2 = computed(() => {
+			let temp = []
+			let nach = tasks.value.filter((item) => item.deadline === 'Вчера').length
+			let rab = tasks.value.filter((item) => item.deadline === 'Сегодня').length
+			let zav = tasks.value.filter((item) => item.deadline === 'Завтра').length
+			let del = tasks.value.filter((item) => item.deadline === 'На неделе')
+				.length
+			temp.push(nach)
+			temp.push(rab)
+			temp.push(zav)
+			temp.push(del)
+			const entries = new Map([['data', temp]])
+			const obj = Object.fromEntries(entries)
+			let ar = []
+			ar.push(obj)
+			return ar
+		})
+		let ser3 = computed(() => {
+			let temp = []
+			let nach = tasks.value.filter(
+				(item) => item.status === 'Не начато' && item.controler
+			).length
+			let rab = tasks.value.filter(
+				(item) => item.status === 'В работе' && item.controler
+			).length
+			let zav = tasks.value.filter(
+				(item) => item.status === 'Завершено' && item.controler
+			).length
+			let del = tasks.value.filter(
+				(item) => item.status === 'Делегировано' && item.controler
+			).length
+			temp.push(nach)
+			temp.push(rab)
+			temp.push(zav)
+			temp.push(del)
+			const entries = new Map([['data', temp]])
+			const obj = Object.fromEntries(entries)
+			let ar = []
+			ar.push(obj)
+			return ar
+		})
+
+		const test = async () => {
+			let result = await document.querySelector('#slides').getActiveIndex()
+			currentSlide.value = result
+		}
+
+		const rem = (e) => {
+			let all = tasks.value.filter((item) => item.id !== e.id)
+			tasks.value = all
+			store.commit('setItems', all)
+		}
+
+		const readAll = () => {
+			tasks.value = tasks.value.filter(
+				(item) => item.type !== selectedChart.value?.label
+			)
+			store.commit('setSelectedChart', null)
+		}
+
+		return {
+			slides,
+			currentSlide,
+			total,
+			filteredItems,
+			ser1,
+			ser2,
+			ser3,
+			test,
+			rem,
+			readAll,
+			selectedChart,
+		}
 	},
 }
 </script>
