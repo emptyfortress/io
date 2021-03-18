@@ -11,7 +11,7 @@ IonPage
 				IonTitle( size="large" ) Сводка
 		IonSlides(pager="true" id="slides" @ionSlideDidChange="test").sl
 			IonSlide(v-for="slide in slides")
-				Chart(:slide="slide" :series1="ser1" :series2="ser2" :series3="ser3")
+				Chart(:slide="slide" :series1="sr1" :series2="sr2" :series3="sr3")
 		div(v-if="currentSlide === 0")
 			h5(v-if="selectedChart === null") Новые задания и документы
 			IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
@@ -30,6 +30,7 @@ import TreeItem from '@/components/TreeItem'
 import Chart from '@/components/Chart'
 import SlideItem from '@/components/SlideItem'
 import axios from 'axios'
+import { chart1, chart2, chart3 } from '@/extra/chart.js'
 
 import {
 	IonPage,
@@ -95,59 +96,9 @@ export default {
 			return store.getters.selectedChart
 		})
 
-		let ser1 = computed(() => {
-			let temp = []
-			let ozn = tasks.value.filter((item) => item.type === 'На ознакомление')
-				.length
-			let isp = tasks.value.filter((item) => item.type === 'На исполнение')
-				.length
-			let vhod = tasks.value.filter((item) => item.type === 'Входящие').length
-			temp.push(ozn)
-			temp.push(isp)
-			temp.push(vhod)
-			return temp
-		})
-		let ser2 = computed(() => {
-			let temp = []
-			let nach = tasks.value.filter((item) => item.deadline === 'Вчера').length
-			let rab = tasks.value.filter((item) => item.deadline === 'Сегодня').length
-			let zav = tasks.value.filter((item) => item.deadline === 'Завтра').length
-			let del = tasks.value.filter((item) => item.deadline === 'На неделе')
-				.length
-			temp.push(nach)
-			temp.push(rab)
-			temp.push(zav)
-			temp.push(del)
-			const entries = new Map([['data', temp]])
-			const obj = Object.fromEntries(entries)
-			let ar = []
-			ar.push(obj)
-			return ar
-		})
-		let ser3 = computed(() => {
-			let temp = []
-			let nach = tasks.value.filter(
-				(item) => item.status === 'Не начато' && item.controler
-			).length
-			let rab = tasks.value.filter(
-				(item) => item.status === 'В работе' && item.controler
-			).length
-			let zav = tasks.value.filter(
-				(item) => item.status === 'Завершено' && item.controler
-			).length
-			let del = tasks.value.filter(
-				(item) => item.status === 'Делегировано' && item.controler
-			).length
-			temp.push(nach)
-			temp.push(rab)
-			temp.push(zav)
-			temp.push(del)
-			const entries = new Map([['data', temp]])
-			const obj = Object.fromEntries(entries)
-			let ar = []
-			ar.push(obj)
-			return ar
-		})
+		let sr1 = computed(() => chart1(tasks.value))
+		let sr2 = computed(() => chart2(tasks.value))
+		let sr3 = computed(() => chart3(tasks.value))
 
 		const test = async () => {
 			let result = await document.querySelector('#slides').getActiveIndex()
@@ -172,9 +123,9 @@ export default {
 			currentSlide,
 			total,
 			filteredItems,
-			ser1,
-			ser2,
-			ser3,
+			sr1,
+			sr2,
+			sr3,
 			test,
 			rem,
 			readAll,
