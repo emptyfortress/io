@@ -1,7 +1,7 @@
 <template lang="pug">
 div(v-if="currentSlide === 0")
 	h5(v-if="selectedPie === null") Новые задания и документы
-	//- IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
+	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedPie.label }}
 			span ({{ selectedPie.val }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
@@ -20,7 +20,7 @@ div(v-else-if="currentSlide === 2")
 			span ({{ selectedBar1.val }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
 
-IonList(v-show="selectedPie !== null || selectedBar !== null || selectedBar1 !== null" lines="full").mol
+//- IonList(v-show="selectedPie !== null || selectedBar !== null || selectedBar1 !== null" lines="full").mol
 	transition-group(name="listX")
 		SlideItem(v-for="item in filteredItems" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
 </template>
@@ -28,18 +28,18 @@ IonList(v-show="selectedPie !== null || selectedBar !== null || selectedBar1 !==
 <script>
 import { IonRow, IonButton, IonList } from '@ionic/vue'
 import {} from 'ionicons/icons'
-import axios from 'axios'
 import SlideItem from '@/components/SlideItem'
 import { mapGetters } from 'vuex'
 
 export default {
-	components: { axios, SlideItem, IonRow, IonButton, IonList },
+	components: { SlideItem, IonRow, IonButton, IonList },
 	props: {
 		currentSlide: Number,
+		items: Object
 	},
-	data() {
-		return {}
-	},
+	// data() {
+	// 	return {}
+	// },
 	computed: {
 		...mapGetters(['items', 'selectedPie', 'selectedBar', 'selectedBar1']),
 		filteredItems() {

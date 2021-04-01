@@ -40,14 +40,16 @@ export default {
 			// }
 		},
 		select1(e) {
-			let smile = e.selectedDataPoints[0].length
-			if (smile > 0) {
-				this.$store.commit('setSelectedChart', {
+			let sel = e.selectedDataPoints[0].length
+			if (sel > 0) {
+				console.log(e)
+				this.$store.commit('setSelectedPie', {
 					label: e.w.config.labels[e.dataPointIndex],
 					index: e.dataPointIndex,
+					val: e.w.config.series[e.dataPointIndex]
 				})
 			} else {
-				this.$store.commit('setSelectedChart', null)
+				this.$store.commit('setSelectedPie', null)
 			}
 		},
 	},
