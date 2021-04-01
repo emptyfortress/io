@@ -20,7 +20,7 @@ div(v-else-if="currentSlide === 2")
 			span ({{ selectedBar1.val }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
 
-//- IonList(v-show="selectedPie !== null || selectedBar !== null || selectedBar1 !== null" lines="full").mol
+IonList(v-show="selectedPie !== null || selectedBar !== null || selectedBar1 !== null" lines="full").mol
 	transition-group(name="listX")
 		SlideItem(v-for="item in filteredItems" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
 </template>
@@ -35,7 +35,6 @@ export default {
 	components: { SlideItem, IonRow, IonButton, IonList },
 	props: {
 		currentSlide: Number,
-		items: Object
 	},
 	// data() {
 	// 	return {}
@@ -56,12 +55,11 @@ export default {
 			this.$store.commit('setItems', all)
 		},
 		readAll() {
-			// let all = this.items.filter(
-			// 	(item) => item.type !== this.selectedPie?.label
-			//)
-			// this.$store.commit('setItems', all)
-			console.log(this.items)
-			// this.$store.commit('setSelectedPie', null)
+			let all = this.items.filter(
+				(item) => item.type !== this.selectedPie?.label
+			)
+			this.$store.commit('setItems', all)
+			this.$store.commit('setSelectedPie', null)
 		},
 	},
 }

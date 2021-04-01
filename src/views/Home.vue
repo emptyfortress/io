@@ -65,15 +65,15 @@ export default {
 			currentSlide.value = result
 		}
 
-		let tasks = ref([])
 		axios.get('./tasks.json').then((response) => {
 			store.commit('setItems', response.data)
-			tasks.value = response.data
 		})
 
-		let sr1 = computed(() => chart1(tasks.value))
-		let sr2 = computed(() => chart2(tasks.value))
-		let sr3 = computed(() => chart3(tasks.value))
+		let items = computed(() => store.getters.items)
+
+		let sr1 = computed(() => chart1(items.value))
+		let sr2 = computed(() => chart2(items.value))
+		let sr3 = computed(() => chart3(items.value))
 
 		const hideTab = () => store.commit('setTabbar', false)
 		const showTab = () => store.commit('setTabbar', true)
@@ -93,27 +93,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.tree {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
 .sl {
 	padding-bottom: 1.5rem;
-}
-h5 {
-	text-align: center;
-	font-weight: bold;
-}
-.mol {
-	margin-bottom: 4rem;
-}
-.tot {
-	font-weight: 600;
-	font-size: 1rem;
-	span {
-		font-weight: 400;
-		margin-left: 0.5rem;
-	}
 }
 </style>
