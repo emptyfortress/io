@@ -3,19 +3,19 @@ div(v-if="currentSlide === 0")
 	h5(v-if="selectedPie === null") Новые задания и документы
 	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedPie.label }}
-			span (0)
+			span ({{ total  }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
 
 div(v-else-if="currentSlide === 1")
 	h5(v-if="selectedBar === null") Истекают сроки исполнения
-	//- IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
+	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedBar.label }}
 			span ({{ selectedBar.val }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
 
 div(v-else-if="currentSlide === 2")
 	h5(v-if="selectedBar1 === null") Задания и документы на контроле
-	//- IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
+	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedBar1.label }}
 			span ({{ selectedBar1.val }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
@@ -36,13 +36,8 @@ export default {
 	props: {
 		currentSlide: Number,
 	},
-	data() {
-		return {
-			pie: 0
-		}
-	},
 	computed: {
-		...mapGetters(['items', 'selectedPie', 'selectedBar', 'selectedBar1']),
+		...mapGetters(['items', 'total', 'selectedPie', 'selectedBar', 'selectedBar1']),
 		filteredItems() {
 			if (this.currentSlide === 0) {
 				return this.items?.filter(
@@ -55,6 +50,7 @@ export default {
 		rem(e) {
 			let all = this.items?.filter((item) => item.id !== e.id)
 			this.$store.commit('setItems', all)
+			this.$store.commit('decrementTotal')
 		},
 		readAll() {
 			let all = this.items.filter(

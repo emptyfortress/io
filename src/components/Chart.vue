@@ -46,8 +46,8 @@ export default {
 				this.$store.commit('setSelectedPie', {
 					label: e.w.config.labels[e.dataPointIndex],
 					index: e.dataPointIndex,
-					val: e.w.config.series[e.dataPointIndex]
 				})
+				this.$store.commit('setTotal', e.w.config.series[e.dataPointIndex])
 			} else {
 				this.$store.commit('setSelectedPie', null)
 			}

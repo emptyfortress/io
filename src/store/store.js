@@ -6,10 +6,11 @@ export const store = createStore({
 			dark: false,
 			tabbar: true,
 			actionBar: false,
-			selectedPie: 0,
+			selectedPie: null,
 			selectedBar: null,
 			selectedBar1: null,
 			items: [],
+			total: 0,
 		}
 	},
 	getters: {
@@ -19,6 +20,7 @@ export const store = createStore({
 		selectedPie: state => { return state.selectedPie },
 		selectedBar: state => { return state.selectedBar },
 		selectedBar1: state => { return state.selectedBar1 },
+		total: state => { return state.total },
 		items: state => { return state.items }
 	},
 	mutations: {
@@ -27,5 +29,7 @@ export const store = createStore({
 		toggleDark (state) { state.dark = !state.dark },
 		setSelectedPie (state, payload) { state.selectedPie = payload },
 		setItems (state, payload) { state.items = payload},
+		decrementTotal (state) { state.total -= 1  },
+		setTotal (state, payload) { state.total = payload },
 	}
 })
