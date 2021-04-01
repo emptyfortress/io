@@ -3,7 +3,7 @@ div(v-if="currentSlide === 0")
 	h5(v-if="selectedPie === null") Новые задания и документы
 	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedPie.label }}
-			span ({{ selectedPie.val }})
+			span (0)
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
 
 div(v-else-if="currentSlide === 1")
@@ -36,9 +36,11 @@ export default {
 	props: {
 		currentSlide: Number,
 	},
-	// data() {
-	// 	return {}
-	// },
+	data() {
+		return {
+			pie: 0
+		}
+	},
 	computed: {
 		...mapGetters(['items', 'selectedPie', 'selectedBar', 'selectedBar1']),
 		filteredItems() {

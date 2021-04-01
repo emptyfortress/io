@@ -6,7 +6,7 @@ export const store = createStore({
 			dark: false,
 			tabbar: true,
 			actionBar: false,
-			selectedPie: null,
+			selectedPie: 0,
 			selectedBar: null,
 			selectedBar1: null,
 			items: [],
