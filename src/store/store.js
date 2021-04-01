@@ -7,6 +7,9 @@ export const store = createStore({
 			tabbar: true,
 			actionBar: false,
 			selectedChart: null,
+			selectedPie: null,
+			selectedBar: null,
+			selectedBar1: null,
 			items: [],
 		}
 	},
@@ -15,6 +18,9 @@ export const store = createStore({
 		tabbar: state => { return state.tabbar },
 		actionBar: state => { return state.actionBar },
 		selectedChart: state => { return state.selectedChart },
+		selectedPie: state => { return state.selectedPie },
+		selectedBar: state => { return state.selectedBar },
+		selectedBar1: state => { return state.selectedBar1 },
 		items: state => { return state.items }
 	},
 	mutations: {
@@ -22,6 +28,7 @@ export const store = createStore({
 		setTabbar (state, payload) { state.tabbar = payload },
 		toggleDark (state) { state.dark = !state.dark },
 		setSelectedChart (state, payload) { state.selectedChart = payload },
+		setSelectedPie (state, payload) { state.selectedPie = payload },
 		setItems (state, payload) { state.items = payload},
 	}
 })

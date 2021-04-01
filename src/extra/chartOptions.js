@@ -89,7 +89,14 @@ const chart1 = {
 }
 
 const chart2 = {
-	chart: { type: 'bar' },
+	chart: { 
+		type: 'bar',
+		events: {
+			dataPointSelection: (_, __, config) => {
+				console.log(event)
+			}
+		}
+	},
 	plotOptions: {
 		bar: {
 			horizontal: true,

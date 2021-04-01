@@ -12,15 +12,16 @@ IonPage
 		IonSlides(pager="true" id="slides" @ionSlideDidChange="test").sl
 			IonSlide(v-for="slide in slides")
 				Chart(:slide="slide" :series1="sr1" :series2="sr2" :series3="sr3")
-		div(v-if="currentSlide === 0")
+		Bottom(:currentSlide="currentSlide")
+		//- div(v-if="currentSlide === 0")
 			h5(v-if="selectedChart === null") Новые задания и документы
 			IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 				.tot {{ selectedChart.label }}
 					span ({{ total }})
 				IonButton(fill="clear" size="small" @click="readAll") Прочитать все
-		h5(v-else-if="currentSlide === 1") Истекают сроки исполнения
-		h5(v-else-if="currentSlide === 2") Задания и документы на контроле
-		IonList(v-show="currentSlide === 0 && selectedChart !== null" lines="full").mol
+		//- h5(v-else-if="currentSlide === 1") Истекают сроки исполнения
+		//- h5(v-else-if="currentSlide === 2") Задания и документы на контроле
+		//- IonList(v-show="currentSlide === 0 && selectedChart !== null" lines="full").mol
 			transition-group(name="listX")
 				SlideItem(v-for="item in filteredItems" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
 </template>
@@ -29,6 +30,7 @@ IonPage
 import TreeItem from '@/components/TreeItem'
 import Chart from '@/components/Chart'
 import SlideItem from '@/components/SlideItem'
+import Bottom from '@/components/Bottom.vue'
 import axios from 'axios'
 import { chart1, chart2, chart3 } from '@/extra/chart.js'
 
@@ -54,6 +56,7 @@ export default {
 	components: {
 		axios,
 		SlideItem,
+		Bottom,
 		Chart,
 		TreeItem,
 		IonPage,
@@ -114,7 +117,7 @@ export default {
 			tasks.value = tasks.value.filter(
 				(item) => item.type !== selectedChart.value?.label
 			)
-			store.commit('setSelectedChart', null)
+			this.$store.commit('setSelectedChart', null)
 		}
 
 		const hideTab = () => store.commit('setTabbar', false)

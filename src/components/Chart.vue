@@ -27,6 +27,18 @@ export default {
 		return {}
 	},
 	methods: {
+		select2(e) {
+			console.log('fuck', e)
+			// let smile = e.selectedDataPoints[0].length
+			// if (smile > 0) {
+			// 	this.$store.commit('setSelectedChart', {
+			// 		label: e.w.config.labels[e.dataPointIndex],
+			// 		index: e.dataPointIndex,
+			// 	})
+			// } else {
+			// 	this.$store.commit('setSelectedChart', null)
+			// }
+		},
 		select1(e) {
 			let smile = e.selectedDataPoints[0].length
 			if (smile > 0) {

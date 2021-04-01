@@ -91,7 +91,18 @@ const charts = {
 				},
 			},
 			chart2: {
-				chart: { type: 'bar' },
+				chart: { 
+					type: 'bar',
+					events: {
+						dataPointSelection: (_, __, config) => {
+							this.select2(config)
+							// console.log(config)
+							// console.log('my')
+							// console.log(config.selectedDataPoints[0].length)
+							// this.select1(config)
+						},
+					},
+				},
 				plotOptions: {
 					bar: {
 						horizontal: true,
