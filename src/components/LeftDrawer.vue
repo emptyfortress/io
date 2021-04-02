@@ -24,6 +24,11 @@ IonMenu(side="start" menu-id="left" content-id="main" type="overlay").mymenu
 				IonIcon(src="assets/icons/addScreen.svg")
 				IonLabel Добавить на гл.экран
 				IonRippleEffect
+			IonMenuToggle(menu="left")
+				IonMenuToggle(menu="right")
+					IonItem(lines="full").myripple.ion-activatable.ripple-parent
+						IonIcon(:icon="moonOutline")
+						IonLabel Темы
 			IonItem(v-for="item in menuList1" lines="full").myripple.ion-activatable.ripple-parent
 				IonIcon(:icon="item.icon")
 				IonLabel {{ item.title}}
@@ -40,6 +45,7 @@ import { treeData, menuList, menuList1 } from '@/data.js'
 
 import {
 	IonMenu,
+	IonMenuToggle,
 	IonAvatar,
 	IonFabButton,
 	IonContent,
@@ -72,6 +78,7 @@ export default {
 		TreeItem,
 		anime,
 		IonMenu,
+		IonMenuToggle,
 		IonAvatar,
 		IonFabButton,
 		IonContent,

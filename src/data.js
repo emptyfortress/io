@@ -5,7 +5,6 @@ import {
 	checkmarkCircleOutline,
 	documentTextOutline,
 	folderOutline,
-	moonOutline,
 	desktopOutline,
 	starOutline,
 	helpCircleOutline,
@@ -20,7 +19,6 @@ const menuList = [
 	{ title: 'Избранное', icon: starOutline },
 ]
 const menuList1 = [
-	{ title: 'Темы', icon: moonOutline },
 	{ title: 'Версия для ПК', icon: desktopOutline },
 	{ title: 'Настройки', icon: cogOutline },
 	{ title: 'Справка/отзыв', icon: helpCircleOutline },

@@ -25,6 +25,7 @@ import { chart1, chart2, chart3 } from '@/extra/chart.js'
 import {
 	IonPage,
 	IonBackButton,
+	IonButtons,
 	IonContent,
 	IonHeader,
 	IonToolbar,
@@ -44,6 +45,7 @@ export default {
 		Chart,
 		IonPage,
 		IonBackButton,
+		IonButtons,
 		IonContent,
 		IonHeader,
 		IonToolbar,
