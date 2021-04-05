@@ -73,7 +73,7 @@ const chart1 = {
 		events: {
 			dataPointSelection: (_, __, config) => {
 				// console.log(config)
-				// console.log('my')
+				console.log('my')
 				// console.log(config.selectedDataPoints[0].length)
 				this.select1(config)
 			},

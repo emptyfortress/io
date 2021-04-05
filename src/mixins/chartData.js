@@ -75,9 +75,6 @@ const charts = {
 					type: 'donut',
 					events: {
 						dataPointSelection: (_, __, config) => {
-							// console.log(config)
-							// console.log('my')
-							// console.log(config.selectedDataPoints[0].length)
 							this.select1(config)
 						},
 					},
@@ -96,10 +93,7 @@ const charts = {
 					events: {
 						dataPointSelection: (_, __, config) => {
 							this.select2(config)
-							// console.log(config)
-							// console.log('my')
-							// console.log(config.selectedDataPoints[0].length)
-							// this.select1(config)
+							// console.log(config.w.config.xaxis.categories[config.dataPointIndex])
 						},
 					},
 				},
@@ -110,6 +104,9 @@ const charts = {
 				},
 				dataLabels: {
 					enabled: false,
+				},
+				tooltip: {
+					// enabled: false,
 				},
 				xaxis: {
 					categories: [

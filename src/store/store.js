@@ -10,7 +10,9 @@ export const store = createStore({
 			selectedBar: null,
 			selectedBar1: null,
 			items: [],
-			total: 0,
+			total1: 0,
+			total2: 0,
+			total3: 0,
 			color: null
 		}
 	},
@@ -21,7 +23,9 @@ export const store = createStore({
 		selectedPie: state => { return state.selectedPie },
 		selectedBar: state => { return state.selectedBar },
 		selectedBar1: state => { return state.selectedBar1 },
-		total: state => { return state.total },
+		total1: state => { return state.total1 },
+		total2: state => { return state.total2 },
+		total3: state => { return state.total3 },
 		items: state => { return state.items },
 		color: state => { return state.color },
 	},
@@ -30,9 +34,13 @@ export const store = createStore({
 		setTabbar (state, payload) { state.tabbar = payload },
 		toggleDark (state) { state.dark = !state.dark },
 		setSelectedPie (state, payload) { state.selectedPie = payload },
+		setSelectedBar (state, payload) { state.selectedBar = payload },
+		setSelectedBar1 (state, payload) { state.selectedBar1 = payload },
 		setItems (state, payload) { state.items = payload},
 		decrementTotal (state) { state.total -= 1  },
-		setTotal (state, payload) { state.total = payload },
+		setTotal1 (state, payload) { state.total1 = payload },
+		setTotal2 (state, payload) { state.total2 = payload },
+		setTotal3 (state, payload) { state.total3 = payload },
 		setColor (state, payload) { state.color = payload },
 	}
 })

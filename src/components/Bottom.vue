@@ -5,26 +5,35 @@ div(v-if="currentSlide === 0")
 		img(src="assets/img/newsletters.svg").news
 	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedPie.label }}
-			span ({{ total  }})
+			span ({{ total1  }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
+
+	IonList(v-show="selectedPie !== null" lines="full").mol
+		transition-group(name="listX")
+			SlideItem(v-for="item in filteredItems" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
 
 div(v-else-if="currentSlide === 1")
-	h5(v-if="selectedBar === null") Истекают сроки исполнения
+	template(v-if="selectedBar === null")
+		h5  Истекают сроки исполнения
+		img(src="assets/img/time.svg").news
 	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedBar.label }}
-			span ({{ selectedBar.val }})
+			span ({{ total2 }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
+
+	IonList(v-show="selectedBar !== null" lines="full").mol
+		transition-group(name="listX")
+			SlideItem(v-for="item in filteredItems" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
 
 div(v-else-if="currentSlide === 2")
-	h5(v-if="selectedBar1 === null") Задания и документы на контроле
+	template(v-if="selectedBar1 === null")
+		h5   Задания и документы на контроле
+		img(src="assets/img/control.svg").news
 	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedBar1.label }}
-			span ({{ selectedBar1.val }})
+			span ({{ total3 }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
 
-IonList(v-show="selectedPie !== null || selectedBar !== null || selectedBar1 !== null" lines="full").mol
-	transition-group(name="listX")
-		SlideItem(v-for="item in filteredItems" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
 </template>
 
 <script>
@@ -39,13 +48,13 @@ export default {
 		currentSlide: Number,
 	},
 	computed: {
-		...mapGetters(['items', 'total', 'selectedPie', 'selectedBar', 'selectedBar1']),
+		...mapGetters(['items', 'total1', 'total2', 'total3', 'selectedPie', 'selectedBar', 'selectedBar1']),
 		filteredItems() {
 			if (this.currentSlide === 0) {
 				return this.items?.filter(
 					(item) => item.type === this.selectedPie?.label
 				)
-			} else return null
+			} else return this.items
 		},
 	},
 	methods: {
