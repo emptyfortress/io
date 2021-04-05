@@ -227,4 +227,7 @@ export default {
 	text-transform: uppercase;
 	margin-top: 4rem;
 }
+.item::part(native) {
+	font-size: 1rem;
+}
 </style>

@@ -6,8 +6,12 @@ IonMenu( side="end" menu-id="right" content-id="main" type="push")
 			IonItem
 				IonLabel Тёмная тема
 				IonToggle(v-model="mode" @ionChange="dark")
-			IonText
-				p.ion-text-center Выберите основной цвет
+			.font Шрифт
+			IonItem
+				IonRange(min="11" max="23" color="primary" v-model="fs" pin @ionChange="setFont")
+					IonIcon(slot="start" size="small" :icon="textOutline")
+					IonIcon(slot="end" :icon="textOutline")
+			.font Выберите основной цвет
 			.mygrid
 				IonFabButton(@click="setColor('one')").fab.one
 					IonIcon(v-show="color === 'one'" :icon="checkmarkOutline")
@@ -25,8 +29,6 @@ IonMenu( side="end" menu-id="right" content-id="main" type="push")
 					IonIcon(v-show="color === 'seven'" :icon="checkmarkOutline")
 				IonFabButton(@click="setColor('eight')").fab.eight
 					IonIcon(v-show="color === 'eight'" :icon="checkmarkOutline")
-			IonButton(@click="setFont") set font
-				
 </template>
 
 <script>
@@ -40,25 +42,28 @@ import {
 	IonText,
 	IonFabButton,
 	IonIcon,
-	IonButton
+	IonButton,
+	IonRange,
 } from '@ionic/vue'
-import { checkmarkOutline, } from 'ionicons/icons'
+import { checkmarkOutline, textOutline } from 'ionicons/icons'
 
 export default {
 	data() {
 		return {
 			mode: false,
 			color: 'six',
+			fs: 16,
 			checkmarkOutline,
+			textOutline,
 		}
 	},
-	components: { IonMenu, IonImg, IonContent, IonItem, IonLabel, IonToggle, IonText, IonFabButton, IonIcon, IonButton },
+	components: { IonMenu, IonImg, IonContent, IonItem, IonLabel, IonToggle, IonText, IonFabButton, IonIcon, IonButton, IonRange },
 	methods: {
 		dark() {
 			document.querySelector('body').classList.toggle('dark')
 		},
-		setFont() {
-			
+		setFont(e) {
+			document.querySelector('html').style.fontSize = e.detail.value + 'px'
 		},
 		setColor(e) {
 			this.color = e
@@ -74,7 +79,7 @@ export default {
 	border-left: 1px solid #ccc;
 }
 .boom {
-	width: 70%;
+	width: 50%;
 	margin: 0 0 2rem auto;
 	/* margin: 0 auto; */
 }
@@ -84,15 +89,22 @@ export default {
 .mygrid {
 	display: grid;
 	grid-template-columns: repeat(4, auto);
-	/* width: 80%; */
-	gap: 1rem;
+	padding: 0 1rem;
+	margin-top: 1rem;
+	gap: .5rem;
 	.fab {
 		--box-shadow: none;
 		border: 3px solid #fff;
 		border-radius: 50%;
 	}
-
 }
+.font {
+	padding-left: 1rem;
+	margin-top: 2rem;
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+
 .fab.one::part(native) {
 	--background: #F64137;
 }
