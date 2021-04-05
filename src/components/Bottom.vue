@@ -67,6 +67,7 @@ export default {
 h5 {
 	text-align: center;
 	font-weight: bold;
+	font-size: 1.1rem;
 }
 .mol {
 	margin-bottom: 4rem;

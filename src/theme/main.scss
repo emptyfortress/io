@@ -16,11 +16,74 @@
 	--ion-color-tint: var(--ion-color-favorite-tint);
 }
 
-.secondColor {
-	--ion-color-primary: #69bb7b;
-  --ion-color-primary-rgb: 105,187,123;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255,255,255;
-  --ion-color-primary-shade: #5ca56c;
-  --ion-color-primary-tint: #78c288;
+.one {
+	--ion-color-primary: #F64137;
+	--ion-color-primary-rgb: 246,65,55;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #d83930;
+	--ion-color-primary-tint: #f7544b;
+}
+
+.two {
+	--ion-color-primary: #FF8622;
+	--ion-color-primary-rgb: 255,134,34;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #e0761e;
+	--ion-color-primary-tint: #ff9238;
+}
+
+.three {
+	--ion-color-primary: #EBC008;
+	--ion-color-primary-rgb: 235,192,8;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #cfa907;
+	--ion-color-primary-tint: #edc621;
+}
+
+.four {
+	--ion-color-primary: #409123;
+	--ion-color-primary-rgb: 64,145,35;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #38801f;
+	--ion-color-primary-tint: #539c39;
+}
+
+.five {
+	--ion-color-primary: #0092D8;
+	--ion-color-primary-rgb: 0,146,216;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #0080be;
+	--ion-color-primary-tint: #1a9ddc;
+}
+
+.six {
+	--ion-color-primary: #2C74F9;
+	--ion-color-primary-rgb: 44,116,249;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #2766db;
+	--ion-color-primary-tint: #4182fa;
+}
+
+.seven {
+	--ion-color-primary: #7057F9;
+	--ion-color-primary-rgb: 112,87,249;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #634ddb;
+	--ion-color-primary-tint: #7e68fa;
+}
+
+.eight {
+	--ion-color-primary: #be38ff;
+	--ion-color-primary-rgb: 66,140,255;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #3a7be0;
+	--ion-color-primary-tint: #5598ff;
 }

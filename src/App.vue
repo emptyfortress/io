@@ -46,6 +46,14 @@ export default {
 		return {}
 	},
 	computed: {
+		// getColor() {
+		// 	let color = this.$store.getters.color
+		// 	if (color === 1) {
+		// 		console.log('fuck')
+		// 		console.log(color)
+		// 		return 'one'
+		// 	} else return ''
+		// },
 		tabbar() {
 			return this.$store.getters.tabbar
 		},

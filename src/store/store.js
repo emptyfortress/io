@@ -11,6 +11,7 @@ export const store = createStore({
 			selectedBar1: null,
 			items: [],
 			total: 0,
+			color: null
 		}
 	},
 	getters: {
@@ -21,7 +22,8 @@ export const store = createStore({
 		selectedBar: state => { return state.selectedBar },
 		selectedBar1: state => { return state.selectedBar1 },
 		total: state => { return state.total },
-		items: state => { return state.items }
+		items: state => { return state.items },
+		color: state => { return state.color },
 	},
 	mutations: {
 		toggleTabbar (state) { state.tabbar = !state.tabbar },
@@ -31,5 +33,6 @@ export const store = createStore({
 		setItems (state, payload) { state.items = payload},
 		decrementTotal (state) { state.total -= 1  },
 		setTotal (state, payload) { state.total = payload },
+		setColor (state, payload) { state.color = payload },
 	}
 })
