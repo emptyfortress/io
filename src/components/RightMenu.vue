@@ -29,6 +29,10 @@ IonMenu( side="end" menu-id="right" content-id="main" type="push")
 					IonIcon(v-show="color === 'seven'" :icon="checkmarkOutline")
 				IonFabButton(@click="setColor('eight')").fab.eight
 					IonIcon(v-show="color === 'eight'" :icon="checkmarkOutline")
+			IonItem
+				IonLabel Настроить
+				.swatch
+					input(type="color" :value="swatch")
 </template>
 
 <script>
@@ -52,12 +56,25 @@ export default {
 		return {
 			mode: false,
 			color: 'six',
+			swatch: '#2c74f9',
 			fs: 16,
 			checkmarkOutline,
 			textOutline,
 		}
 	},
-	components: { IonMenu, IonImg, IonContent, IonItem, IonLabel, IonToggle, IonText, IonFabButton, IonIcon, IonButton, IonRange },
+	components: {
+		IonMenu,
+		IonImg,
+		IonContent,
+		IonItem,
+		IonLabel,
+		IonToggle,
+		IonText,
+		IonFabButton,
+		IonIcon,
+		IonButton,
+		IonRange,
+	},
 	methods: {
 		dark() {
 			document.querySelector('body').classList.toggle('dark')
@@ -69,7 +86,7 @@ export default {
 			this.color = e
 			document.querySelector('#col').className = ''
 			document.querySelector('#col').classList.add(e)
-		}
+		},
 	},
 }
 </script>
@@ -91,7 +108,7 @@ export default {
 	grid-template-columns: repeat(4, auto);
 	padding: 0 1rem;
 	margin-top: 1rem;
-	gap: .5rem;
+	gap: 0.5rem;
 	.fab {
 		--box-shadow: none;
 		border: 3px solid #fff;
@@ -101,30 +118,37 @@ export default {
 .font {
 	padding-left: 1rem;
 	margin-top: 2rem;
-	font-size: 1.1rem;
+	font-size: 1.0rem;
 	font-weight: bold;
+}
+.swatch {
+	margin: 2rem auto;
+	input {
+		width: 50px;
+		height: 50px;
+	}
 }
 
 .fab.one::part(native) {
-	--background: #F64137;
+	--background: #f64137;
 }
 .fab.two::part(native) {
-	--background: #FF8622;
+	--background: #ff8622;
 }
 .fab.three::part(native) {
-	--background: #EBC008;
+	--background: #ebc008;
 }
 .fab.four::part(native) {
 	--background: #409123;
 }
 .fab.five::part(native) {
-	--background: #0092D8;
+	--background: #0092d8;
 }
 .fab.six::part(native) {
-	--background: #2C74F9;
+	--background: #2c74f9;
 }
 .fab.seven::part(native) {
-	--background: #7057F9;
+	--background: #7057f9;
 }
 .fab.eight::part(native) {
 	--background: #be38ff;
