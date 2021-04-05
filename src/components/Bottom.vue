@@ -1,6 +1,8 @@
 <template lang="pug">
 div(v-if="currentSlide === 0")
-	h5(v-if="selectedPie === null") Новые задания и документы
+	template(v-if="selectedPie === null")
+		h5 Новые задания и документы
+		img(src="assets/img/newsletters.svg").news
 	IonRow(v-else).ion-justify-content-between.ion-padding-start.ion-align-items-center
 		.tot {{ selectedPie.label }}
 			span ({{ total  }})
@@ -79,5 +81,10 @@ h5 {
 		font-weight: 400;
 		margin-left: 0.5rem;
 	}
+}
+.news {
+	width: 40%;
+	display: block;
+	margin: 1rem auto;
 }
 </style>

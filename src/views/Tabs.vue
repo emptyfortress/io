@@ -5,7 +5,7 @@
 	IonTabBar(v-else)
 		IonMenuButton.menu
 		IonTabButton(tab="home" href="/home")
-			IonIcon( :icon="easelOutline" )
+			IonIcon( :icon="pieChartOutline" )
 		IonTabButton(tab="folders" href="/folders")
 			IonIcon( :icon="folderOpenOutline")
 		IonTabButton(tab="notifications" href="/notifications")
@@ -37,7 +37,7 @@ import {
 	searchOutline,
 	notificationsOutline,
 	folderOpenOutline,
-	easelOutline,
+	pieChartOutline,
 	menu,
 } from 'ionicons/icons'
 
@@ -60,7 +60,7 @@ export default {
 			searchOutline,
 			notificationsOutline,
 			folderOpenOutline,
-			easelOutline,
+			pieChartOutline,
 			menu,
 			add: false,
 			buttons: [

@@ -30,7 +30,7 @@ IonMenu( side="end" menu-id="right" content-id="main" type="push")
 				IonFabButton(@click="setColor('eight')").fab.eight
 					IonIcon(v-show="color === 'eight'" :icon="checkmarkOutline")
 			IonItem
-				IonLabel Настроить
+				IonLabel Настроить цвет:
 				.swatch
 					input(type="color" :value="swatch")
 </template>
