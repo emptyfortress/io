@@ -27,8 +27,20 @@ export default {
 		return {}
 	},
 	methods: {
-		select2(e) {
+		select3(e) {
 			console.log(e)
+			let sel = e.selectedDataPoints[0].length
+			if (sel > 0) {
+				this.$store.commit('setSelectedBar1', {
+					label: e.w.config.xaxis.categories[e.dataPointIndex],
+					index: e.dataPointIndex,
+				})
+				this.$store.commit('setTotal3', e.w.config.series[0].data[e.dataPointIndex])
+			} else {
+				this.$store.commit('setSelectedBar1', null)
+			}
+		},
+		select2(e) {
 			let sel = e.selectedDataPoints[0].length
 			if (sel > 0) {
 				this.$store.commit('setSelectedBar', {

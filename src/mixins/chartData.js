@@ -93,7 +93,6 @@ const charts = {
 					events: {
 						dataPointSelection: (_, __, config) => {
 							this.select2(config)
-							// console.log(config.w.config.xaxis.categories[config.dataPointIndex])
 						},
 					},
 				},
@@ -133,6 +132,11 @@ const charts = {
 			chart3: {
 				chart: {
 					type: 'bar',
+					events: {
+						dataPointSelection: (_, __, config) => {
+							this.select3(config)
+						},
+					},
 				},
 				plotOptions: {
 					bar: {

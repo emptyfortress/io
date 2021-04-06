@@ -34,6 +34,10 @@ div(v-else-if="currentSlide === 2")
 			span ({{ total3 }})
 		IonButton(fill="clear" size="small" @click="readAll") Прочитать все
 
+	IonList(v-show="selectedBar1 !== null" lines="full").mol
+		transition-group(name="listX")
+			SlideItem(v-for="item in filteredItems" @swipe="rem(item)" @read="rem(item)" :key="item.id" :item="item")
+
 </template>
 
 <script>
@@ -58,7 +62,12 @@ export default {
 				return this.items?.filter(
 					(item) => item.dead === this.selectedBar?.label
 				)
+			} else if (this.currentSlide === 2) {
+				return this.items?.filter(
+					(item) => (item.controler && item.status === this.selectedBar1?.label)
+				)
 			} else return this.items
+
 		},
 	},
 	methods: {
