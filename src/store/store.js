@@ -1,4 +1,11 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
+import { treeData, menuList, menuList1 } from '@/data.js'
+
+axios.get('./tasks.json').then((response) => {
+	store.state.items = response.data
+})
+
 
 export const store = createStore({
 	state () {
@@ -13,7 +20,10 @@ export const store = createStore({
 			total1: 0,
 			total2: 0,
 			total3: 0,
-			color: null
+			color: null,
+			treeData: treeData,
+			menuList: menuList,
+			menuList1: menuList1
 		}
 	},
 	getters: {
@@ -28,6 +38,9 @@ export const store = createStore({
 		total3: state => { return state.total3 },
 		items: state => { return state.items },
 		color: state => { return state.color },
+		treeData: state => { return state.treeData },
+		menuList: state => { return state.menuList },
+		menuList1: state => { return state.menuList1 },
 	},
 	mutations: {
 		toggleTabbar (state) { state.tabbar = !state.tabbar },

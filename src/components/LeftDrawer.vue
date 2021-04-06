@@ -41,7 +41,7 @@ IonMenu(side="start" menu-id="left" content-id="main" type="overlay").mymenu
 <script>
 import anime from 'animejs/lib/anime.es.js'
 import TreeItem from '@/components/TreeItem'
-import { treeData, menuList, menuList1 } from '@/data.js'
+import { mapGetters } from 'vuex'
 
 import {
 	IonMenu,
@@ -64,9 +64,6 @@ export default {
 		return {
 			moonOutline,
 			logOutOutline,
-			treeData,
-			menuList,
-			menuList1,
 			userAnimation: null,
 			listAnimation: null,
 			logoAnimation: null,
@@ -89,6 +86,9 @@ export default {
 		IonLabel,
 		IonBadge,
 		IonRippleEffect,
+	},
+	computed: {
+		...mapGetters(['treeData', 'menuList', 'menuList1'])
 	},
 	mounted() {
 		this.userAnimation = anime({

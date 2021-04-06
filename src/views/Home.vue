@@ -19,7 +19,6 @@ IonPage
 import Chart from '@/components/Chart'
 import SlideItem from '@/components/SlideItem'
 import Bottom from '@/components/Bottom.vue'
-import axios from 'axios'
 import { chart1, chart2, chart3 } from '@/extra/chart.js'
 
 import {
@@ -39,7 +38,6 @@ import { useStore } from 'vuex'
 
 export default {
 	components: {
-		axios,
 		SlideItem,
 		Bottom,
 		Chart,
@@ -65,9 +63,6 @@ export default {
 			let result = await document.querySelector('#slides').getActiveIndex()
 			currentSlide.value = result
 		}
-		axios.get('./tasks.json').then((response) => {
-			store.commit('setItems', response.data)
-		})
 		let items = computed(() => store.getters.items)
 		let sr1 = computed(() => chart1(items.value))
 		let sr2 = computed(() => chart2(items.value))
