@@ -1,5 +1,5 @@
 import {
-	speedometerOutline,
+	pieChartOutline,
 	timerOutline,
 	notificationsOutline,
 	checkmarkCircleOutline,
@@ -13,7 +13,7 @@ import {
 } from 'ionicons/icons'
 
 const menuList = [
-	{ title: 'Сводка', icon: speedometerOutline },
+	{ title: 'Сводка', icon: pieChartOutline },
 	{ title: 'Последние карточки', icon: timerOutline },
 	{ title: 'Уведомления', icon: notificationsOutline, badge: 11 },
 	{ title: 'Избранное', icon: starOutline },

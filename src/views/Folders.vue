@@ -4,12 +4,19 @@ IonPage
 		IonToolbar
 			IonButtons(slot="start")
 				IonBackButton
-			IonTitle Tab 2 small
+			IonTitle Папки
 	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="hideTab" @ionScrollEnd="showTab").ion-padding
 		IonHeader( collapse="condense" )
 			IonToolbar()
-				IonTitle( size="large" ) Tab 2
-		p(v-for="n in 7") Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
+				IonTitle( size="large" ) Папки
+		Breadcrumbs
+		.up
+			IonIcon(:icon="folder" :color="primary")
+			.tit Входящие
+		.grid
+			.folder(v-for="n in 5")
+				IonIcon(:icon="folder" :color="primary")
+				.tit Входящие
 
 </template>
 
@@ -22,9 +29,13 @@ import {
 	IonHeader,
 	IonToolbar,
 	IonTitle,
+	IonIcon,
 } from '@ionic/vue'
 
+import {folder} from 'ionicons/icons'
+
 import { useStore } from 'vuex'
+import Breadcrumbs from '@/components/Breadcrumbs.vue'
 
 export default {
 	name: 'Tab2',
@@ -36,20 +47,34 @@ export default {
 		IonHeader,
 		IonToolbar,
 		IonTitle,
+		IonIcon,
+		Breadcrumbs,
 	},
 	setup() {
 		const store = useStore()
 		const hideTab = () => store.commit('setTabbar', false)
 		const showTab = () => store.commit('setTabbar', true)
 
-		return { hideTab, showTab }
+		return { hideTab, showTab, folder }
 	},
 }
 </script>
 
 <style scoped lang="scss">
 ion-content {
-	/* --background: red; */
-	/* --offset-bottom: -56px; */
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+.folder, .up {
+	font-size: .9rem;
+	text-align: center;
+	ion-icon {
+		font-size: 3rem;
+		/* color: var(--ion-color-secondary-tint); */
+		color: #5C4328;
+	}
 }
 </style>
