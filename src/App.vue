@@ -54,9 +54,9 @@ export default {
 		// 		return 'one'
 		// 	} else return ''
 		// },
-		tabbar() {
-			return this.$store.getters.tabbar
-		},
+		// tabbar() {
+		// 	return this.$store.getters.tabbar
+		// },
 	},
 	methods: {},
 }

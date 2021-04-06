@@ -10,12 +10,19 @@ IonPage
 			IonToolbar()
 				IonTitle( size="large" ) Папки
 		Breadcrumbs
-		.grid
+		.grid.first
 			.up
 				IonIcon(:icon="arrowUndoOutline")
 				.tit Назад
-			.folder.ion-activatable.ripple-parent(v-for="n in 5")
-				IonIcon(:icon="folder")
+			.folder.ion-activatable.ripple-parent(v-for="dir in dirs" :key="dir.id")
+				.rel
+					IonIcon(:icon="folder")
+					.dot
+				.tit {{ dir.name }}
+				IonRippleEffect
+		.grid.second
+			.folder.ion-activatable.ripple-parent(v-for="n in 12")
+				IonIcon(:icon="documentOutline")
 				.tit Входящие
 				IonRippleEffect
 
@@ -31,10 +38,11 @@ import {
 	IonToolbar,
 	IonTitle,
 	IonIcon,
-	IonRippleEffect
+	IonRippleEffect,
+	IonBadge
 } from '@ionic/vue'
 
-import {folder, arrowUndoOutline } from 'ionicons/icons'
+import {folder, arrowUndoOutline, documentOutline } from 'ionicons/icons'
 
 import { useStore } from 'vuex'
 import Breadcrumbs from '@/components/Breadcrumbs.vue'
@@ -52,13 +60,21 @@ export default {
 		IonIcon,
 		IonRippleEffect,
 		Breadcrumbs,
+		IonBadge,
 	},
 	setup() {
 		const store = useStore()
+		const dirs = [
+			{ id: 0, menu: false, name: 'Важное' },
+			{ id: 1, menu: false, name: 'Черновики' },
+			{ id: 2, menu: false, name: 'Договоры' },
+			{ id: 3, menu: false, name: 'Архив' },
+			{ id: 4, menu: false, name: 'Folder 1' },
+		]
 		const hideTab = () => store.commit('setTabbar', false)
 		const showTab = () => store.commit('setTabbar', true)
 
-		return { hideTab, showTab, folder, arrowUndoOutline }
+		return { hideTab, showTab, folder, arrowUndoOutline, documentOutline, dirs }
 	},
 }
 </script>
@@ -70,7 +86,14 @@ ion-content {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
-	margin-top: 8rem;
+	&.first {
+		margin-top: 8rem;
+		margin-bottom: 1rem;
+	}
+	&.second {
+		opacity: .5;
+		margin-bottom: 5rem;
+	}
 }
 .folder, .up {
 	font-size: .9rem;
@@ -78,9 +101,12 @@ ion-content {
 	cursor: pointer;
 	ion-icon {
 		font-size: 3rem;
-		/* color: var(--ion-color-secondary-tint); */
 		color: #5C4328;
 	}
+}
+.rel {
+	display: inline-block;
+	position: relative;
 }
 .up {
 	grid-column: 1/4;
@@ -90,5 +116,16 @@ ion-content {
 .ripple-parent {
 	position: relative;
 	overflow: hidden;
+}
+.dot {
+	width: 15px;
+	height: 15px;
+	background: var(--ion-color-success);
+	border-radius: 50%;
+	position: absolute;
+	bottom: 5px;
+	right: -5px;
+	border: 2px solid #fff;
+	
 }
 </style>

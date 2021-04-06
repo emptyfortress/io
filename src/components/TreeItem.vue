@@ -80,7 +80,6 @@ li {
 	}
 	ul {
 		margin: 0;
-		margin-top: 0.5rem;
 		padding: 0;
 		margin-left: 1.5rem;
 	}
