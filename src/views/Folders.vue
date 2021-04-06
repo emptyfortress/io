@@ -10,13 +10,14 @@ IonPage
 			IonToolbar()
 				IonTitle( size="large" ) Папки
 		Breadcrumbs
-		.up
-			IonIcon(:icon="folder" :color="primary")
-			.tit Входящие
 		.grid
-			.folder(v-for="n in 5")
-				IonIcon(:icon="folder" :color="primary")
+			.up
+				IonIcon(:icon="arrowUndoOutline")
+				.tit Назад
+			.folder.ion-activatable.ripple-parent(v-for="n in 5")
+				IonIcon(:icon="folder")
 				.tit Входящие
+				IonRippleEffect
 
 </template>
 
@@ -30,9 +31,10 @@ import {
 	IonToolbar,
 	IonTitle,
 	IonIcon,
+	IonRippleEffect
 } from '@ionic/vue'
 
-import {folder} from 'ionicons/icons'
+import {folder, arrowUndoOutline } from 'ionicons/icons'
 
 import { useStore } from 'vuex'
 import Breadcrumbs from '@/components/Breadcrumbs.vue'
@@ -48,6 +50,7 @@ export default {
 		IonToolbar,
 		IonTitle,
 		IonIcon,
+		IonRippleEffect,
 		Breadcrumbs,
 	},
 	setup() {
@@ -55,7 +58,7 @@ export default {
 		const hideTab = () => store.commit('setTabbar', false)
 		const showTab = () => store.commit('setTabbar', true)
 
-		return { hideTab, showTab, folder }
+		return { hideTab, showTab, folder, arrowUndoOutline }
 	},
 }
 </script>
@@ -67,14 +70,25 @@ ion-content {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
+	margin-top: 8rem;
 }
 .folder, .up {
 	font-size: .9rem;
 	text-align: center;
+	cursor: pointer;
 	ion-icon {
 		font-size: 3rem;
 		/* color: var(--ion-color-secondary-tint); */
 		color: #5C4328;
 	}
+}
+.up {
+	grid-column: 1/4;
+	justify-self: start;
+	padding-left: 1rem;
+}
+.ripple-parent {
+	position: relative;
+	overflow: hidden;
 }
 </style>
