@@ -54,6 +54,10 @@ export default {
 				return this.items?.filter(
 					(item) => item.type === this.selectedPie?.label
 				)
+			} else if (this.currentSlide === 1) {
+				return this.items?.filter(
+					(item) => item.dead === this.selectedBar?.label
+				)
 			} else return this.items
 		},
 	},
