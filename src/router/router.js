@@ -15,18 +15,11 @@ const routes = [
 		path: '/folders',
 		name: 'folders',
 		component: () => import('@/views/Folders.vue'),
-		// children: [
-		// 	{
-		// 		path: '/myFolders',
-		// 		name: 'myFolders',
-		// 		component: () => import('@/views/Nav.vue'),
-		// 	},
-		// ]
 	},
 	{
 		path: '/myFolders',
 		name: 'myFolders',
-		component: () => import('@/views/Nav.vue'),
+		component: () => import('@/views/Navigation.vue'),
 		meta: {
 			title: 'Мои папки'
 		}
