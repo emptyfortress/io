@@ -6,7 +6,7 @@
 		IonMenuButton.menu
 		IonTabButton(tab="home" href="/home")
 			IonIcon( :icon="pieChartOutline" )
-		IonTabButton(tab="folders" href="/folders")
+		IonTabButton(tab="folders" href="/main")
 			IonIcon( src="assets/icons/folderOutline.svg")
 		IonTabButton(tab="notifications" href="/notifications")
 			IonIcon( :icon="notificationsOutline" )

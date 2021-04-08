@@ -1,39 +1,40 @@
 <template lang="pug">
 .bread
-	routerLink(to="#" @click="test") home
+	routerLink(to="#" @click="test" v-for="chunk in chunks" :key="chunk") {{ chunk }}
 </template>
 
 <script>
 export default {
 	data() {
 		return {
-			
 		}
 	},
-	methods: {
-		test() {
-			console.log(this.$route.fullPath.split('/'))
+	computed: {
+		chunks () {
+			let arr = this.$route.path.split('/')
+			arr.shift() 
+			return arr
 		}
 	}
-
 }
 </script>
 
 <style lang="scss">
 .bread {
-	margin-bottom: 1rem;
-	font-size: 1.0rem;
+	margin: 1rem;
+	font-size: 0.9rem;
 	padding: 0 1rem;
+	padding-left: 0;
 	a {
 		display: inline-block;
 		text-decoration: none;
 		&:hover {
 			text-decoration: underline;
 		}
-		&::after {
+		&::before {
 			content: "/";
 			display: inline-block;
-			margin: 0 0.5rem;
+			margin: 0 0.25rem;
 			cursor: default;
 		}
 	}

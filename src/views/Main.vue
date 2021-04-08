@@ -5,7 +5,7 @@ IonPage
 			IonButtons(slot="start")
 				IonBackButton
 			IonTitle Главная
-	IonContent.ion-padding
+	IonContent
 		IonHeader( collapse="condense" )
 			IonToolbar()
 				IonTitle( size="large" ) Главная
@@ -74,7 +74,7 @@ export default {
 			{ id: 1, icon: 'starOutline', title: 'Избранное', url: '/last' },
 			{ id: 2, icon: 'task', title: 'Задания', url: '/last' },
 			{ id: 3, icon: 'docs', title: 'Документы', url: '/last' },
-			{ id: 4, icon: 'folder', title: 'Мои папки', url: '/myFolders',
+			{ id: 4, icon: 'folder', title: 'Мои папки', url: '/main/folders',
 				children: [
 					{ id: 5, menu: false, name: 'Важное' },
 					{ id: 6, menu: false, name: 'Черновики' },
@@ -111,7 +111,7 @@ export default {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
-	height: 80%;
+	height: 70%;
 }
 .grid {
 	display: grid;

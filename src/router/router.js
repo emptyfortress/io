@@ -12,13 +12,16 @@ const routes = [
 		component: Home
 	},
 	{
-		path: '/folders',
-		name: 'folders',
-		component: () => import('@/views/Folders.vue'),
+		path: '/main',
+		name: 'main',
+		component: () => import('@/views/Main.vue'),
+		meta: {
+			title: 'главная'
+		}
 	},
 	{
-		path: '/myFolders',
-		name: 'myFolders',
+		path: '/main/folders',
+		name: 'folders',
 		component: () => import('@/views/Navigation.vue'),
 		meta: {
 			title: 'Мои папки'

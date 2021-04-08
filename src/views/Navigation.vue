@@ -9,10 +9,12 @@ IonPage
 		IonHeader( collapse="condense" )
 			IonToolbar()
 				IonTitle( size="large") Мои папки
+		Breadcrumbs
 </template>
 
 <script>
 import { useRouter, useRoute } from 'vue-router'
+import Breadcrumbs from '@/components/Breadcrumbs.vue'
 // import { ref } from 'vue'
 // import { useStore } from 'vuex'
 
@@ -42,6 +44,7 @@ export default {
 		IonTitle,
 		IonIcon,
 		IonRippleEffect,
+		Breadcrumbs,
 	},
 	setup () {
 		const router = useRouter()
@@ -56,4 +59,7 @@ export default {
 </script>
 
 <style lang="scss">
+ion-content {
+	background: pink;
+}
 </style>
