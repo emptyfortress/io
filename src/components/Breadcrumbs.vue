@@ -1,6 +1,6 @@
 <template lang="pug">
 .bread
-	routerLink(to="#" @click="test") one
+	routerLink(to="#" @click="test") home
 </template>
 
 <script>
@@ -23,6 +23,7 @@ export default {
 .bread {
 	margin-bottom: 1rem;
 	font-size: 1.0rem;
+	padding: 0 1rem;
 	a {
 		display: inline-block;
 		text-decoration: none;

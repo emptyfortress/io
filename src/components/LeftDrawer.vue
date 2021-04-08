@@ -7,7 +7,7 @@ IonMenu(side="start" menu-id="left" content-id="main" type="overlay").mymenu
 			IonAvatar.av
 				img(src="assets/img/user0.svg")
 			.online
-			IonFabButton(size="small" color="primary" @click="test").exit
+			IonFabButton(size="small" color="primary" ).exit
 				IonIcon(:icon="logOutOutline" )
 	IonContent(scroll-events @ionScroll="move")
 		IonList
@@ -127,9 +127,6 @@ export default {
 		})
 	},
 	methods: {
-		test() {
-			console.log(this.treeData)
-		},
 		move(e) {
 			this.listAnimation.seek(e.detail.scrollTop * 5)
 			this.userAnimation.seek(e.detail.scrollTop * 5)

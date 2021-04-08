@@ -4,27 +4,15 @@ IonPage
 		IonToolbar
 			IonButtons(slot="start")
 				IonBackButton
-			IonTitle Папки
-	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="hideTab" @ionScrollEnd="showTab").ion-padding
+			IonTitle Главная
+	IonContent.ion-padding
 		IonHeader( collapse="condense" )
 			IonToolbar()
-				IonTitle( size="large" ) Папки
+				IonTitle( size="large" ) Главная
 		Breadcrumbs
-		.grid.first
-			.up
-				IonIcon(:icon="arrowUndoOutline")
-				.tit Назад
-			.folder.ion-activatable.ripple-parent(v-for="dir in dirs" :key="dir.id")
-				.rel
-					IonIcon(:icon="folder")
-					.dot
-				.tit {{ dir.name }}
-				IonRippleEffect
-		.grid.second
-			.folder.ion-activatable.ripple-parent(v-for="n in 12")
-				IonIcon(:icon="documentOutline")
-				.tit Входящие
-				IonRippleEffect
+		.flexcenter
+			.grid
+				Cell(v-for="cell in cells" :cell="cell")
 
 </template>
 
@@ -32,6 +20,7 @@ IonPage
 import {
 	IonPage,
 	IonButtons,
+	IonButton,
 	IonBackButton,
 	IonContent,
 	IonHeader,
@@ -39,13 +28,17 @@ import {
 	IonTitle,
 	IonIcon,
 	IonRippleEffect,
-	IonBadge
+	IonBadge,
 } from '@ionic/vue'
 
-import {folder, arrowUndoOutline, documentOutline } from 'ionicons/icons'
+import {
+	arrowUndoOutline,
+	menu,
+} from 'ionicons/icons'
 
 import { useStore } from 'vuex'
 import Breadcrumbs from '@/components/Breadcrumbs.vue'
+import Cell from '@/components/Cell.vue'
 
 export default {
 	name: 'Tab2',
@@ -61,9 +54,14 @@ export default {
 		IonRippleEffect,
 		Breadcrumbs,
 		IonBadge,
+		IonButton,
+		Cell,
 	},
+
 	setup() {
+		const men = true
 		const store = useStore()
+
 		const dirs = [
 			{ id: 0, menu: false, name: 'Важное' },
 			{ id: 1, menu: false, name: 'Черновики' },
@@ -71,61 +69,73 @@ export default {
 			{ id: 3, menu: false, name: 'Архив' },
 			{ id: 4, menu: false, name: 'Folder 1' },
 		]
+		const cells = [
+			{ id: 0, icon: 'history', title: 'Последние', url: '/last' },
+			{ id: 1, icon: 'starOutline', title: 'Избранное', url: '/last' },
+			{ id: 2, icon: 'task', title: 'Задания', url: '/last' },
+			{ id: 3, icon: 'docs', title: 'Документы', url: '/last' },
+			{ id: 4, icon: 'folder', title: 'Мои папки', url: '/myFolders',
+				children: [
+					{ id: 5, menu: false, name: 'Важное' },
+					{ id: 6, menu: false, name: 'Черновики' },
+					{ id: 7, menu: false, name: 'Договоры' },
+					{ id: 8, menu: false, name: 'Архив' },
+					{ id: 9, menu: false, name: 'Folder 1' },
+				]
+			},
+		]
+
+		const addFolder = () => store.commit('addFolder', { id: 33, name: 'test' })
 		const hideTab = () => store.commit('setTabbar', false)
 		const showTab = () => store.commit('setTabbar', true)
 
-		return { hideTab, showTab, folder, arrowUndoOutline, documentOutline, dirs }
+		return {
+			hideTab,
+			showTab,
+			arrowUndoOutline,
+			men,
+			menu,
+			dirs,
+			addFolder,
+			cells,
+		}
 	},
 }
 </script>
 
 <style scoped lang="scss">
-ion-content {
+.fix {
+	height: 80%;
+}
+.flexcenter {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 80%;
 }
 .grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem;
-	&.first {
-		margin-top: 8rem;
-		margin-bottom: 1rem;
-	}
-	&.second {
-		opacity: .5;
-		margin-bottom: 5rem;
-	}
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: 1.5rem;
 }
-.folder, .up {
-	font-size: .9rem;
+.folder,
+.up {
+	font-size: 0.9rem;
 	text-align: center;
 	cursor: pointer;
 	ion-icon {
 		font-size: 3rem;
-		color: #5C4328;
 	}
-}
-.rel {
-	display: inline-block;
-	position: relative;
-}
-.up {
-	grid-column: 1/4;
-	justify-self: start;
-	padding-left: 1rem;
-}
-.ripple-parent {
-	position: relative;
-	overflow: hidden;
 }
 .dot {
 	width: 15px;
 	height: 15px;
-	background: var(--ion-color-success);
+	background: var(--ion-color-primary);
 	border-radius: 50%;
 	position: absolute;
 	bottom: 5px;
 	right: -5px;
 	border: 2px solid #fff;
-	
 }
 </style>
