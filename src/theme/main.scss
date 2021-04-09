@@ -87,3 +87,7 @@
 	--ion-color-primary-shade: #3a7be0;
 	--ion-color-primary-tint: #5598ff;
 }
+
+ion-content > div:last-child {
+	margin-bottom: 100px;
+}

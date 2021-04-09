@@ -74,15 +74,7 @@ export default {
 			{ id: 1, icon: 'starOutline', title: 'Избранное', url: '/last' },
 			{ id: 2, icon: 'task', title: 'Задания', url: '/last' },
 			{ id: 3, icon: 'docs', title: 'Документы', url: '/last' },
-			{ id: 4, icon: 'folder', title: 'Мои папки', url: '/main/folders',
-				children: [
-					{ id: 5, menu: false, name: 'Важное' },
-					{ id: 6, menu: false, name: 'Черновики' },
-					{ id: 7, menu: false, name: 'Договоры' },
-					{ id: 8, menu: false, name: 'Архив' },
-					{ id: 9, menu: false, name: 'Folder 1' },
-				]
-			},
+			{ id: 4, icon: 'folder', title: 'Мои папки', url: '/main/folders' },
 		]
 
 		const addFolder = () => store.commit('addFolder', { id: 33, name: 'test' })
@@ -104,9 +96,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.fix {
-	height: 80%;
-}
 .flexcenter {
 	display: flex;
 	justify-content: center;
@@ -118,24 +107,5 @@ export default {
 	grid-template-columns: repeat(2, 1fr);
 	align-items: center;
 	gap: 1.5rem;
-}
-.folder,
-.up {
-	font-size: 0.9rem;
-	text-align: center;
-	cursor: pointer;
-	ion-icon {
-		font-size: 3rem;
-	}
-}
-.dot {
-	width: 15px;
-	height: 15px;
-	background: var(--ion-color-primary);
-	border-radius: 50%;
-	position: absolute;
-	bottom: 5px;
-	right: -5px;
-	border: 2px solid #fff;
 }
 </style>

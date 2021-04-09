@@ -52,7 +52,11 @@ const treeData = [
 		id: 11,
 		name: 'Мои папки',
 		icon: folderOutline,
-		children: [{ id: 12, name: 'Важное' }, {id: 13,  name: 'Черновики' }],
+		children: [
+			{ id: 12, name: 'Важное' },
+			{id: 13,  name: 'Черновики' },
+			{id: 14,  name: 'Договоры' }
+		],
 	},
 ]
 

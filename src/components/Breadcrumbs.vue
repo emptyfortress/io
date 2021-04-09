@@ -15,6 +15,11 @@ export default {
 			arr.shift() 
 			return arr
 		}
+	},
+	methods: {
+		test() {
+			console.log(this.$route)
+		}
 	}
 }
 </script>

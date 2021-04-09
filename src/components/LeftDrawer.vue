@@ -34,7 +34,7 @@ IonMenu(side="start" menu-id="left" content-id="main" type="overlay").mymenu
 				IonLabel {{ item.title}}
 				IonBadge(v-if="item.badge") {{ item.badge }}
 				IonRippleEffect
-		.hid
+		//- .hid
 
 </template>
 

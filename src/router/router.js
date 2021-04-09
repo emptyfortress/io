@@ -16,16 +16,18 @@ const routes = [
 		name: 'main',
 		component: () => import('@/views/Main.vue'),
 		meta: {
-			title: 'главная'
+			title: 'Главная'
 		}
 	},
 	{
 		path: '/main/folders',
-		name: 'folders',
-		component: () => import('@/views/Navigation.vue'),
-		meta: {
-			title: 'Мои папки'
-		}
+		name: 'myFolders',
+		component: () => import('@/views/Folders.vue'),
+	},
+	{
+		path: '/main/folders/:id',
+		name: 'folder',
+		component: () => import('@/components/Folder.vue'),
 	},
 	{
 		path: '/notifications',
