@@ -1,5 +1,5 @@
 <template lang="pug">
-IonPage
+IonPage(v-if="dir")
 	IonHeader
 		IonToolbar
 			IonButtons(slot="start")
@@ -13,14 +13,14 @@ IonPage
 
 		.grid
 			.left.ion-activatable.ripple-parent
-				IonIcon(:icon="arrowUndoOutline" @click="router.go(-1)")
+				IonIcon(:icon="arrowUndoOutline" @click="router.replace('/main/folders')")
 				.tit Назад
 				IonRippleEffect
 			.right(v-if="route.path !== '/main/folders'")
-				IonButton(size="small" @click="test")
+				IonButton(size="small" @click="foldMenu")
 					.ion-margin-end
-						span(v-if="men") Убрать из
-						span(v-if="!men") Добавить в
+						span(v-if="dir.menu") Убрать из
+						span(v-if="!dir.menu") Добавить в
 					IonIcon(:icon="menu")
 
 		h2 {{ dir }}
@@ -70,12 +70,19 @@ export default {
 		const router = useRouter()
 		const route = useRoute()
 		const store = useStore()
-		const test = (() => console.log(route.params))
+		const foldMenu = (() => {
+			let ind = store.getters.dirs.findIndex((e) => e.name === dir.value.name)
+			if (dir.value.menu) {
+				store.commit('removeFolder', ind)
+			} else {
+				store.commit('addFolder', dir.value )
+			}
+			dir.value.menu = !dir.value.menu
+		})
 
 		const dir = computed(() => {
-			let id = parseInt(route.params.id)
 			let dirs = store.getters.dirs
-			return dirs.find((e) => e.id === id)
+			return dirs.find((e) => e.id === parseInt(route.params.id))
 		})
 
 		return {
@@ -85,7 +92,7 @@ export default {
 			showTab,
 			arrowUndoOutline,
 			menu,
-			test,
+			foldMenu,
 			dir
 		}
 	}

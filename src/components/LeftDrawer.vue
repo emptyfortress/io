@@ -19,6 +19,7 @@ IonMenu(side="start" menu-id="left" content-id="main" type="overlay").mymenu
 			ul.tree
 				template(v-for="item in treeData" :key="item.id")
 					TreeItem(class="item" :item="item")
+
 			IonListHeader.hd Дополнительно
 			IonItem( lines="full").myripple.ion-activatable.ripple-parent
 				IonIcon(src="assets/icons/addScreen.svg")

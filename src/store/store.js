@@ -57,6 +57,7 @@ export const store = createStore({
 		setTotal2 (state, payload) { state.total2 = payload },
 		setTotal3 (state, payload) { state.total3 = payload },
 		setColor (state, payload) { state.color = payload },
-		addFolder (state, payload) { state.treeData[2].children.push(payload) }
+		addFolder (state, payload) { state.treeData[2].children.push(payload) },
+		removeFolder (state, payload) { state.treeData[2].children.splice(payload, 1) }
 	}
 })

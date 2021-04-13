@@ -1,14 +1,10 @@
 <template lang="pug">
 .bread
-	routerLink(to="#" @click="test" v-for="chunk in chunks" :key="chunk") {{ chunk }}
+	routerLink(to="#" v-for="chunk in chunks" :key="chunk") {{chunk}}
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-		}
-	},
 	computed: {
 		chunks () {
 			let arr = this.$route.path.split('/')
@@ -16,11 +12,6 @@ export default {
 			return arr
 		}
 	},
-	methods: {
-		test() {
-			console.log(this.$route)
-		}
-	}
 }
 </script>
 
