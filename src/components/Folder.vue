@@ -13,7 +13,7 @@ IonPage(v-if="dir")
 
 		.grid
 			.left.ion-activatable.ripple-parent
-				IonIcon(:icon="arrowUndoOutline" @click="router.replace('/main/folders')")
+				IonIcon(:icon="arrowUndoOutline" @click="router.go(-1)")
 				.tit Назад
 				IonRippleEffect
 			.right(v-if="route.path !== '/main/folders'")
@@ -23,8 +23,18 @@ IonPage(v-if="dir")
 						span(v-if="!dir.menu") Добавить в
 					IonIcon(:icon="menu")
 
-		h2 {{ dir }}
-		routerView
+		.grid1
+			.folder.ion-activatable.ripple-parent(v-for="n in 4" :key="n" )
+				IonIcon(src="assets/icons/folder.svg").fl
+				.tit Папка {{ n }}
+				IonRippleEffect
+
+		br
+		IonList(lines="full").mol
+			transition-group(name="listX")
+				SlideItemDumb(v-for="n in 20")
+
+		//- routerView
 
 </template>
 
@@ -33,6 +43,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 import Breadcrumbs from '@/components/Breadcrumbs.vue'
+import SlideItemDumb from '@/components/SlideItemDumb.vue'
 
 import {
 	IonPage,
@@ -44,6 +55,7 @@ import {
 	IonToolbar,
 	IonTitle,
 	IonIcon,
+	IonList,
 	IonRippleEffect,
 } from '@ionic/vue'
 
@@ -62,6 +74,8 @@ export default {
 		IonIcon,
 		IonRippleEffect,
 		Breadcrumbs,
+		IonList,
+		SlideItemDumb,
 	},
 	setup () {
 		const hideTab = () => store.commit('setTabbar', false)
@@ -142,5 +156,8 @@ export default {
 		margin-right: .25rem;
 		background: var(--ion-color-primary);
 	}
+}
+.mol {
+	margin-bottom: 4rem;
 }
 </style>
