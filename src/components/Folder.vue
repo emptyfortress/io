@@ -4,11 +4,11 @@ IonPage
 		IonToolbar
 			IonButtons(slot="start")
 				IonBackButton
-			IonTitle Папка {{ route.params.id }}
+			IonTitle {{  dir.name }}
 	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="hideTab" @ionScrollEnd="showTab")
 		IonHeader( collapse="condense" )
 			IonToolbar()
-				IonTitle( size="large") Папка {{ route.params.id }}
+				IonTitle( size="large") {{ dir.name }}
 		Breadcrumbs
 
 		.grid
@@ -23,6 +23,7 @@ IonPage
 						span(v-if="!men") Добавить в
 					IonIcon(:icon="menu")
 
+		h2 {{ dir }}
 		routerView
 
 </template>
@@ -30,7 +31,7 @@ IonPage
 <script>
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-// import { ref } from 'vue'
+import { computed } from 'vue'
 import Breadcrumbs from '@/components/Breadcrumbs.vue'
 
 import {
@@ -71,6 +72,12 @@ export default {
 		const store = useStore()
 		const test = (() => console.log(route.params))
 
+		const dir = computed(() => {
+			let id = parseInt(route.params.id)
+			let dirs = store.getters.dirs
+			return dirs.find((e) => e.id === id)
+		})
+
 		return {
 			router,
 			route,
@@ -78,7 +85,8 @@ export default {
 			showTab,
 			arrowUndoOutline,
 			menu,
-			test
+			test,
+			dir
 		}
 	}
 }
