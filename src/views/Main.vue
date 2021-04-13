@@ -59,7 +59,6 @@ export default {
 	},
 
 	setup() {
-		const men = true
 		const store = useStore()
 
 		const dirs = [
@@ -85,7 +84,6 @@ export default {
 			hideTab,
 			showTab,
 			arrowUndoOutline,
-			men,
 			menu,
 			dirs,
 			addFolder,

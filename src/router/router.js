@@ -23,11 +23,15 @@ const routes = [
 		path: '/main/folders',
 		name: 'myFolders',
 		component: () => import('@/views/Folders.vue'),
+		meta: {
+			title: 'Мои папки'
+		}
 	},
 	{
 		path: '/main/folders/:id',
 		name: 'folder',
 		component: () => import('@/components/Folder.vue'),
+		props: true
 	},
 	{
 		path: '/notifications',

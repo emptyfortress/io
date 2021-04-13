@@ -4,11 +4,11 @@ IonPage
 		IonToolbar
 			IonButtons(slot="start")
 				IonBackButton
-			IonTitle Папка
+			IonTitle Папка {{ route.params.id }}
 	IonContent( :fullscreen="true" :scroll-events="true" @ionScrollStart="hideTab" @ionScrollEnd="showTab")
 		IonHeader( collapse="condense" )
 			IonToolbar()
-				IonTitle( size="large") Папка
+				IonTitle( size="large") Папка {{ route.params.id }}
 		Breadcrumbs
 
 		.grid
@@ -17,7 +17,7 @@ IonPage
 				.tit Назад
 				IonRippleEffect
 			.right(v-if="route.path !== '/main/folders'")
-				IonButton(size="small")
+				IonButton(size="small" @click="test")
 					.ion-margin-end
 						span(v-if="men") Убрать из
 						span(v-if="!men") Добавить в
@@ -30,6 +30,7 @@ IonPage
 <script>
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
+// import { ref } from 'vue'
 import Breadcrumbs from '@/components/Breadcrumbs.vue'
 
 import {
@@ -68,6 +69,7 @@ export default {
 		const router = useRouter()
 		const route = useRoute()
 		const store = useStore()
+		const test = (() => console.log(route.params))
 
 		return {
 			router,
@@ -76,6 +78,7 @@ export default {
 			showTab,
 			arrowUndoOutline,
 			menu,
+			test
 		}
 	}
 }

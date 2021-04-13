@@ -16,12 +16,6 @@ IonPage
 				IonIcon(:icon="arrowUndoOutline" @click="router.go(-1)")
 				.tit Назад
 				IonRippleEffect
-			.right(v-if="route.path !== '/main/folders'")
-				IonButton(size="small")
-					.ion-margin-end
-						span(v-if="men") Убрать из
-						span(v-if="!men") Добавить в
-					IonIcon(:icon="menu")
 
 		.grid1
 			.folder.ion-activatable.ripple-parent(v-for="dir in dirs" :key="dir.id" @click="router.push(dir.url)")
